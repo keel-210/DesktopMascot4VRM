@@ -1,0 +1,1 @@
+The scripts in this folder (DMM*.cs) are used for demo scenes but these scripts are not always needed for Desktop Mascot Maker. So you can delete these scripts if you want.
