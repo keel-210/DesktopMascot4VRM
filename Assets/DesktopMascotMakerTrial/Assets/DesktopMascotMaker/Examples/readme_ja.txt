@@ -1,2 +1,0 @@
-もしデモシーンが必要なかったらExamplesフォルダは削除しても構いません。
-Plugins,Resources,Scriptフォルダは削除しないでください。

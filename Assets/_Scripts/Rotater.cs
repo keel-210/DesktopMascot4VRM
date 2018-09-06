@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Rotater : MonoBehaviour
 {
-	[SerializeField] float speed;
+	[SerializeField] Vector3 speed;
 	void Update ()
 	{
-		transform.rotation *= Quaternion.Euler (Vector3.one * speed);
+		transform.rotation *= Quaternion.Euler (speed * Time.deltaTime);
 	}
 }
