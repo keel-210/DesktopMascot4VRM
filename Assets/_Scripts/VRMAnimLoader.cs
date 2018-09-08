@@ -23,7 +23,7 @@ public class VRMAnimLoader : MonoBehaviour
 	public Transform cameraTransform;
 
 	private CameraController.WheelMode originalWheelMode;
-	GameObject currentModel;
+	[SerializeField] public GameObject currentModel;
 	AssetBundleLoader loader;
 
 	// Use this for initialization
@@ -36,17 +36,6 @@ public class VRMAnimLoader : MonoBehaviour
 			{
 				originalWheelMode = cameraController.wheelMode;
 			}
-		}
-
-		// Load the initial model.
-		string[] cmdArgs = System.Environment.GetCommandLineArgs ();
-		if (cmdArgs.Length > 1)
-		{
-			LoadModel (cmdArgs[1]);
-		}
-		else
-		{
-			LoadModel (Application.streamingAssetsPath + "/default_vrm.vrm");
 		}
 
 		// Initialize window manager
@@ -113,11 +102,13 @@ public class VRMAnimLoader : MonoBehaviour
 
 			newModel = context.Root;
 			meta = context.ReadMeta ();
-			if (currentModel)
+			if (currentModel.GetComponent<Animator> ())
 			{
 				newModel.GetComponent<Animator> ().runtimeAnimatorController = currentModel.GetComponent<Animator> ().runtimeAnimatorController;
-				Destroy (currentModel);
+				FindObjectOfType<ClickBoneObserver> ().anim = newModel.GetComponent<Animator> ();
+				FindObjectOfType<HumanCollider> ().Adjust4Model ();
 			}
+			Destroy (currentModel);
 			currentModel = newModel;
 		}
 		catch (Exception ex)

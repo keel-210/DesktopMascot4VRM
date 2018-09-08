@@ -5,23 +5,18 @@ ModelImporter:
   fileIDToRecycleName:
     100000: AllowedUser
     100002: //RootNode
-    100004: Camera
-    100006: Circle
-    100008: Commercial
-    100010: Lamp
-    100012: Restriction
-    100014: Sexuality
-    100016: Violent
+    100004: Circle
+    100006: Commercial
+    100008: Restriction
+    100010: Sexuality
+    100012: Violent
     400000: AllowedUser
     400002: //RootNode
-    400004: Camera
-    400006: Circle
-    400008: Commercial
-    400010: Lamp
-    400012: Restriction
-    400014: Sexuality
-    400016: Violent
-    2000000: Camera
+    400004: Circle
+    400006: Commercial
+    400008: Restriction
+    400010: Sexuality
+    400012: Violent
     2100000: Restriction
     2100002: Commercial
     2100004: Sexuality
@@ -45,7 +40,6 @@ ModelImporter:
     4300006: Violent
     4300008: AllowedUser
     4300010: Circle
-    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1

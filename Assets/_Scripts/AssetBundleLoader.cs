@@ -31,14 +31,24 @@ public class AssetBundleLoader : MonoBehaviour
 				yield return new WaitWhile (()=> resultObject.isDone == false);
 
 				var obj = (GameObject)Instantiate (resultObject.asset);
-				if (obj.GetComponent<Animator> ())
-				{
-					currentModel.GetComponent<Animator> ().runtimeAnimatorController = obj.GetComponent<Animator> ().runtimeAnimatorController;
-					GameObject.FindObjectOfType<ClickBoneObserver> ().anim = obj.GetComponent<Animator> ();
-				}
 				if (obj.GetComponent<Settings4VRM> ())
 				{
 					LicenseCheck (currentModel, obj.GetComponent<Settings4VRM> ());
+				}
+			}
+			if (name.Substring (name.Length - 11)== ".controller")
+			{
+				char[] slash = new char[] { '/' };
+				var objName = name.Split (slash);
+				string s = objName[objName.Length - 1].Substring (0, objName[objName.Length - 1].Length - 11);
+
+				var resultObject = assetbundle.LoadAsset (s)as RuntimeAnimatorController;
+
+				if (currentModel.GetComponent<Animator> ())
+				{
+					currentModel.GetComponent<Animator> ().runtimeAnimatorController = resultObject;
+					FindObjectOfType<ClickBoneObserver> ().anim = currentModel.GetComponent<Animator> ();
+					FindObjectOfType<HumanCollider> ().Adjust4Model ();
 				}
 			}
 		}
@@ -46,30 +56,49 @@ public class AssetBundleLoader : MonoBehaviour
 	}
 	void LicenseCheck (GameObject vrmModel, Settings4VRM setting)
 	{
-		VRMMetaObject meta = vrmModel.GetComponent<VRMMeta> ().Meta;
-		if (meta.AllowedUser != AllowedUser.Everyone)
+		VRMMeta meta = vrmModel.GetComponent<VRMMeta> ();
+		if (meta)
 		{
-			Destroy (vrmModel);
-			Instantiate (AllowedUserWarning);
-			return;
+			VRMMetaObject metaObj = meta.Meta;
+			if (metaObj.AllowedUser != AllowedUser.Everyone)
+			{
+				Destroy (vrmModel);
+				GameObject obj = (GameObject)Instantiate (AllowedUserWarning);
+				obj.transform.position = new Vector3 (0, 1, -1.5f);
+				obj.transform.rotation = Quaternion.Euler (0, 90, 0);
+				FindObjectOfType<VRMAnimLoader> ().currentModel = obj;
+				return;
+			}
+			if (metaObj.ViolentUssage == UssageLicense.Disallow && setting.violent == UssageLicense.Allow)
+			{
+				Destroy (vrmModel);
+				GameObject obj = (GameObject)Instantiate (ViolenceWarning);
+				obj.transform.position = new Vector3 (0, 1, -1.5f);
+				obj.transform.rotation = Quaternion.Euler (0, 90, 0);
+				FindObjectOfType<VRMAnimLoader> ().currentModel = obj;
+
+				return;
+			}
+			if (metaObj.SexualUssage == UssageLicense.Disallow && setting.sexuality == UssageLicense.Allow)
+			{
+				Destroy (vrmModel);
+				GameObject obj = (GameObject)Instantiate (SextialWarning);
+				obj.transform.position = new Vector3 (0, 1, -1.5f);
+				obj.transform.rotation = Quaternion.Euler (0, 90, 0);
+				FindObjectOfType<VRMAnimLoader> ().currentModel = obj;
+
+				return;
+			}
+			if (metaObj.CommercialUssage == UssageLicense.Disallow && setting.commercial == UssageLicense.Allow)
+			{
+				Destroy (vrmModel);
+				GameObject obj = (GameObject)Instantiate (CommartialWarning);
+				obj.transform.position = new Vector3 (0, 1, -1.5f);
+				obj.transform.rotation = Quaternion.Euler (0, 90, 0);
+				FindObjectOfType<VRMAnimLoader> ().currentModel = obj;
+				return;
+			}
 		}
-		if (meta.ViolentUssage == UssageLicense.Disallow && setting.violent == UssageLicense.Allow)
-		{
-			Destroy (vrmModel);
-			Instantiate (ViolenceWarning);
-			return;
-		}
-		if (meta.ViolentUssage == UssageLicense.Disallow && setting.sextiality == UssageLicense.Allow)
-		{
-			Destroy (vrmModel);
-			Instantiate (SextialWarning);
-			return;
-		}
-		if (meta.ViolentUssage == UssageLicense.Disallow && setting.commercial == UssageLicense.Allow)
-		{
-			Destroy (vrmModel);
-			Instantiate (CommartialWarning);
-			return;
-		}
+		return;
 	}
 }
