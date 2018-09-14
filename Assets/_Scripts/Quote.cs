@@ -6,3 +6,7 @@ public class Quote : MonoBehaviour
 {
 
 }
+public enum QuoteStyle
+{
+
+}

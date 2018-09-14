@@ -20,7 +20,6 @@ public class ClickBoneObserver : MonoBehaviour
 			{
 				anim.SetInteger ("ClickEvent", (int)HumanBodyBones.LastBone);
 			}
-			Debug.Log (anim.GetInteger ("ClickEvent"));
 		}
 	}
 	HumanBodyBones BoneCheck (Vector3 mousePosition)
