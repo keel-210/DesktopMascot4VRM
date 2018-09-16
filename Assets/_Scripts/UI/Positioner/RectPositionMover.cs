@@ -5,8 +5,8 @@ using UnityEngine;
 public class RectPositionMover : MonoBehaviour
 {
 	RectTransform tra;
-	Vector3 PosOffset;
-	float DelayTime;
+	public Vector3 PosOffset;
+	public float DelayTime;
 	float Timer;
 	void Start ()
 	{

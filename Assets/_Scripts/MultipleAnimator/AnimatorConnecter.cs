@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 public class AnimatorConnecter : StateMachineBehaviour
 {
-	public Animator anim;
+	public Animator anim = new Animator ();
 	public ExecuteType exeType;
 	public float DelayTime;
-	public AnimatorController AnimCtrl;
-	public UnityEngine.AnimatorControllerParameter[] parameters;
 	public List<IntParam> IntParams = new List<IntParam> ();
 	public List<FloatParam> FloatParams = new List<FloatParam> ();
 	public List<BoolParam> BoolParams = new List<BoolParam> ();
@@ -61,6 +58,7 @@ public class AnimatorConnecter : StateMachineBehaviour
 		foreach (IntParam i in IntParams)
 		{
 			anim.SetInteger (i.name, i.value);
+			Debug.Log (i.name + i.value);
 		}
 		foreach (FloatParam f in FloatParams)
 		{
@@ -76,14 +74,15 @@ public class AnimatorConnecter : StateMachineBehaviour
 		}
 		Executed = true;
 	}
-	public enum ExecuteType
-	{
-		Enter,
-		Exit,
-		Delay,
-		UpdateStay,
-		DelayStay,
-	}
+
+}
+public enum ExecuteType
+{
+	Enter,
+	Exit,
+	Delay,
+	UpdateStay,
+	DelayStay,
 }
 
 [Serializable]

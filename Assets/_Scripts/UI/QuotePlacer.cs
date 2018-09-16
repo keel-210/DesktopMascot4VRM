@@ -2,51 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class QuotePlacer : MonoBehaviour
+public class QuotePlacer : StateMachineBehaviour
 {
-	RectTransform quote;
-	void PlaceQuote (Animator animator, HumanBodyBones PlaceBone, RectTransform panel, Vector3 PlaceOffset, AnchorPresets anchor)
+	public ExecuteType exeType;
+	public float DelayTime;
+	[Multiline] public string QuoteString;
+	public Color PanelColor = Color.white, TextColor = Color.black;
+	public HumanBodyBones PlaceBone = HumanBodyBones.Head;
+	public Vector2 PlaceOffset = new Vector2 (-100, 0), PanelCollar = new Vector2 (10, 10);
+	public AnchorPresets anchor = AnchorPresets.MiddleCenter;
+	float Timer;
+	bool Executed;
+	Quote placer;
+	public override void OnStateEnter (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
-		if (quote)
+		if (exeType == ExecuteType.Enter)
 		{
-			Destroy (quote.gameObject);
+			QuotePlace (animator);
 		}
-		quote = panel;
-		if (PlaceBone != HumanBodyBones.LastBone)
+
+	}
+	public override void OnStateUpdate (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	{
+		if (exeType == ExecuteType.Delay || exeType == ExecuteType.DelayStay)
 		{
-			panel.SetAnchor (anchor);
-			panel.position = Camera.main.WorldToScreenPoint (animator.GetBoneTransform (PlaceBone).position)+ PlaceOffset;
+			if (Timer < DelayTime)
+			{
+				Timer += Time.deltaTime;
+			}
+			else
+			{
+				if (exeType == ExecuteType.DelayStay)
+				{
+					QuotePlace (animator);
+				}
+				else if (!Executed)
+				{
+					QuotePlace (animator);
+				}
+			}
+		}
+		if (exeType == ExecuteType.UpdateStay)
+		{
+			QuotePlace (animator);
 		}
 	}
-	public void MakeQuote (Animator animator, string QuoteString)
+	public override void OnStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
-		MakeQuote (animator, QuoteString, Color.white, Color.black, HumanBodyBones.Head, new Vector2 (-100, 0), new Vector2 (10, 10), AnchorPresets.BottomLeft);
+		if (exeType == ExecuteType.Exit)
+		{
+			QuotePlace (animator);
+		}
 	}
-	public void MakeQuote (Animator animator, string QuoteString, Color PanelColor)
+	void QuotePlace (Animator animator)
 	{
-		MakeQuote (animator, QuoteString, PanelColor, Color.black, HumanBodyBones.Head, new Vector2 (-100, 0), new Vector2 (10, 10), AnchorPresets.BottomLeft);
-	}
-	public void MakeQuote (Animator animator, string QuoteString, Color PanelColor, Color TextColor, HumanBodyBones PlaceBone, Vector2 PlaceOffset, Vector2 PanelCollar, AnchorPresets anchor)
-	{
-		GameObject imObj = new GameObject ();
-		imObj.AddComponent<RectTransform> ();
-		imObj.transform.parent = GameObject.Find ("Canvas").transform;
-		Image image = imObj.AddComponent<Image> ();
-		image.color = PanelColor;
-
-		GameObject texObj = new GameObject ();
-		RectTransform tra = texObj.AddComponent<RectTransform> ();
-		texObj.transform.parent = imObj.transform;
-		Text text = texObj.AddComponent<Text> ();
-		text.supportRichText = true;
-		text.font = Font.CreateDynamicFontFromOSFont ("Arial", 20);
-		text.text = QuoteString;
-		text.color = TextColor;
-
-		text.rectTransform.sizeDelta = new Vector2 (text.preferredWidth, text.preferredHeight);
-		text.rectTransform.sizeDelta = new Vector2 (text.preferredWidth, text.preferredHeight);
-		image.rectTransform.sizeDelta = text.rectTransform.sizeDelta + PanelCollar;
-
-		PlaceQuote (animator, PlaceBone, imObj.GetComponent<RectTransform> (), PlaceOffset, anchor);
+		if (placer == null)
+		{
+			placer = FindObjectOfType<Quote> ();
+		}
+		placer.MakeQuote (animator, QuoteString, PanelColor, TextColor, PlaceBone, PlaceOffset, PanelCollar, anchor);
+		Executed = true;
 	}
 }

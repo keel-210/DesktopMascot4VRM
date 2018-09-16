@@ -8,6 +8,6 @@ public class QuoteTest : MonoBehaviour
 	[SerializeField, Multiline] string QuoteString;
 	void Start ()
 	{
-		FindObjectOfType<QuotePlacer> ().MakeQuote (animator, QuoteString, Color.white, Color.black, HumanBodyBones.Head, new Vector3 (100, 0, 0), new Vector2 (10, 10), AnchorPresets.BottomLeft);
+		FindObjectOfType<Quote> ().MakeQuote (animator, QuoteString, Color.white, Color.black, HumanBodyBones.Head, new Vector3 (100, 0, 0), new Vector2 (10, 10), AnchorPresets.BottomLeft);
 	}
 }

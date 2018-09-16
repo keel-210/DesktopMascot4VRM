@@ -13,19 +13,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 55
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: TestBool
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: TestInt
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -65,7 +65,6 @@ MonoBehaviour:
   anim: {fileID: 95569494657814986, guid: cd15327098eeaea4b83a696b3d3457c1, type: 2}
   exeType: 0
   DelayTime: 0
-  AnimCtrl: {fileID: 9100000, guid: 2ad982afd5db6ee43b21f71d6acf00fc, type: 2}
   IntParams:
   - name: ClickEvent
     value: 0

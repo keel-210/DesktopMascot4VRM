@@ -5,8 +5,8 @@ using UnityEngine;
 public class AlphaController : MonoBehaviour
 {
 	List<CanvasRenderer> rends = new List<CanvasRenderer> ();
-	Color ColorOffset;
-	float DelayTime;
+	public Color ColorOffset;
+	public float DelayTime = 3;
 	float Timer;
 	public AlphaController (Color c, float Delay)
 	{
@@ -15,11 +15,14 @@ public class AlphaController : MonoBehaviour
 	}
 	void Start ()
 	{
+		rends = new List<CanvasRenderer> ();
 		List<GameObject> list = GetAllChildren.GetAll (gameObject);
+		list.Add (gameObject);
 		foreach (GameObject obj in list)
 		{
 			CanvasRenderer r = obj.GetComponent<CanvasRenderer> ();
-			if (r)
+			Debug.Log (r);
+			if (r != null)
 			{
 				rends.Add (r);
 			}

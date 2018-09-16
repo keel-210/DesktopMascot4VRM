@@ -1,0 +1,49 @@
+ManifestFileVersion: 0
+CRC: 2606088232
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: be03665f6e6937332a30379ee6e17b04
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bb69cd12a78a42ac52ae73acec7e17f1
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: f23996b53b4d96b4991e10685a2fbb1c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a0039a7ef2562114988bfede766ae5a4, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Connector/Soul2.controller
+- Assets/Connector/Soul1.controller
+- Assets/Connector/Soul1.prefab
+- Assets/Connector/Soul2.prefab
+Dependencies: []

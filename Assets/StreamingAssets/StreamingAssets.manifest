@@ -1,11 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2869205166
+CRC: 4233295010
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: assets/soul.unity3d
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: asset/sexuality.unity3d
     Info_1:
       Name: asset/sexuality.unity3d
       Dependencies:
         Dependency_0: assets/soul.unity3d
+    Info_2:
+      Name: assets/connecter.unity3d
+      Dependencies: {}
