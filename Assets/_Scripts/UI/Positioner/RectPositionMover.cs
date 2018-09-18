@@ -5,9 +5,18 @@ using UnityEngine;
 public class RectPositionMover : MonoBehaviour
 {
 	RectTransform tra;
-	public Vector3 PosOffset;
-	public float DelayTime;
+	Vector3 StartPos, EndPos;
+	float DelayTime, MovingTime;
 	float Timer;
+	Vector3 Speed;
+	void Init (Vector3 start, Vector3 end, float delay, float moving)
+	{
+		StartPos = start;
+		EndPos = end;
+		DelayTime = delay;
+		MovingTime = moving;
+		Speed = (EndPos - StartPos)/ MovingTime;
+	}
 	void Start ()
 	{
 		tra = GetComponent<RectTransform> ();
@@ -18,9 +27,13 @@ public class RectPositionMover : MonoBehaviour
 		{
 			Timer += Time.deltaTime;
 		}
+		else if (Timer < DelayTime + MovingTime)
+		{
+			tra.position += Speed * Time.deltaTime;
+		}
 		else
 		{
-			tra.position += PosOffset * Time.deltaTime;
+			tra.position = EndPos;
 		}
 	}
 }

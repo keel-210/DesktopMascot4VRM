@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AlphaController : MonoBehaviour
@@ -7,26 +8,33 @@ public class AlphaController : MonoBehaviour
 	List<CanvasRenderer> rends = new List<CanvasRenderer> ();
 	public Color ColorOffset;
 	public float DelayTime = 3;
-	float Timer;
-	public AlphaController (Color c, float Delay)
+	public bool MinusColor;
+	float Timer, ColorDirection;
+	public void Init (Color c, float Delay, bool minus)
 	{
 		ColorOffset = c;
 		DelayTime = Delay;
+		MinusColor = minus;
+		if (MinusColor)
+		{
+			ColorDirection = -1;
+		}
+		else
+		{
+			ColorDirection = 1;
+			foreach (CanvasRenderer r in rends)
+			{
+				Color color = r.GetColor ();
+				color = new Color (color.r, color.g, color.b, 0);
+				r.SetColor (color);
+			}
+		}
 	}
 	void Start ()
 	{
-		rends = new List<CanvasRenderer> ();
 		List<GameObject> list = GetAllChildren.GetAll (gameObject);
 		list.Add (gameObject);
-		foreach (GameObject obj in list)
-		{
-			CanvasRenderer r = obj.GetComponent<CanvasRenderer> ();
-			Debug.Log (r);
-			if (r != null)
-			{
-				rends.Add (r);
-			}
-		}
+		rends = list.Select (x => x.GetComponent<CanvasRenderer> ()).Where (r => r != null).ToList ();
 	}
 	void Update ()
 	{
@@ -38,12 +46,16 @@ public class AlphaController : MonoBehaviour
 		{
 			foreach (CanvasRenderer r in rends)
 			{
-				Color c = r.GetColor ()- ColorOffset * Time.deltaTime;
+				Color c = r.GetColor ()+ ColorDirection * ColorOffset * Time.deltaTime;
 				r.SetColor (c);
 			}
-			if (rends[0].GetColor ().a <= 0)
+			if (rends[0].GetColor ().a <= 0 && MinusColor)
 			{
 				Destroy (gameObject);
+			}
+			if (rends[0].GetColor ().a >= 1 && !MinusColor)
+			{
+				Destroy (this);
 			}
 		}
 	}
