@@ -12,6 +12,9 @@ public class AlphaController : MonoBehaviour
 	float Timer, ColorDirection;
 	public void Init (Color c, float changing, float Delay, bool minus)
 	{
+		List<GameObject> list = GetAllChildren.GetAll (gameObject);
+		list.Add (gameObject);
+		rends = list.Select (x => x.GetComponent<CanvasRenderer> ()).Where (r => r != null).ToList ();
 		ColorOffset = c / changing;
 		DelayTime = Delay;
 		MinusColor = minus;

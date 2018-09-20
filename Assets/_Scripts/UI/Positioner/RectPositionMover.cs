@@ -12,10 +12,11 @@ public class RectPositionMover : MonoBehaviour
 	public void Init (Vector3 start, Vector3 end, float delay, float moving)
 	{
 		StartPos = start;
-		EndPos = end;
 		DelayTime = delay;
 		MovingTime = moving;
 		Speed = (EndPos - StartPos)/ MovingTime;
+		tra = GetComponent<RectTransform> ();
+		EndPos = tra.position;
 		tra.position += start;
 	}
 	void Start ()
@@ -30,11 +31,13 @@ public class RectPositionMover : MonoBehaviour
 		}
 		else if (Timer < DelayTime + MovingTime)
 		{
+			Timer += Time.deltaTime;
 			tra.position += Speed * Time.deltaTime;
 		}
 		else
 		{
 			tra.position = EndPos;
+			Destroy(this);
 		}
 	}
 }

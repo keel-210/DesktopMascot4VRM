@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641258, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465791, g: 0.4964133, b: 0.57481784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2145,8 +2145,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 490758461}
-  - component: {fileID: 490758462}
   - component: {fileID: 490758463}
+  - component: {fileID: 490758462}
   m_Layer: 0
   m_Name: QuoteEvent
   m_TagString: Untagged
@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 490758460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dbc1102d095fff4a84c7b78704ce124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &490758463
@@ -2186,15 +2186,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 490758460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb6670ca6d21b1a41b1cb32c4a538b43, type: 3}
+  m_Script: {fileID: 11500000, guid: 1240801310a669d469bd86511f3793bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 590865123}
-  QuoteString: 'Quote Test
-
-    This is Test Quote
-
-    <color=red>This is Test Quote</color>'
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  Anchor: 4
+  QuoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  MoveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
 --- !u!1 &542601417
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,11 +7,11 @@ public class QuoteController : MonoBehaviour
 	public List<QuoteStyles> list = new List<QuoteStyles> ();
 	List<QuoteStyles> ListQuotes = new List<QuoteStyles> ();
 	int prevCount = 0;
-	RectTransform LastListRect;
+	public	RectTransform LastListRect;
 	List<Vector3> ListPos = new List<Vector3> ();
 	void Update ()
 	{
-		if (prevCount != list.Count)
+		if (prevCount != list.Count && (prevCount != 0))
 		{
 			prevCount = list.Count;
 			ListQuotes = list.Where (s => s.quoteStyle == QuoteStyle.List).ToList ();
@@ -23,8 +23,8 @@ public class QuoteController : MonoBehaviour
 		{
 			for (int i = 0; i < ListQuotes.Count; i++)
 			{
-				ListQuotes[i].panel.position = Vector3.Lerp (ListQuotes[i].panel.position,
-					ListPos[i] + new Vector3 (LastListRect.sizeDelta.x, LastListRect.sizeDelta.y, 0), 0.1f);
+				//ListQuotes[i].panel.position = Vector3.Lerp (ListQuotes[i].panel.position,
+				//	ListPos[i] + new Vector3 (LastListRect.sizeDelta.x, LastListRect.sizeDelta.y, 0), 0.1f);
 			}
 		}
 	}

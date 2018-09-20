@@ -41,10 +41,11 @@ public class Quote : MonoBehaviour
 		text.rectTransform.sizeDelta = new Vector2 (text.preferredWidth, text.preferredHeight);
 		image.rectTransform.sizeDelta = text.rectTransform.sizeDelta + PanelCollar;
 
-		if (!animList.Any (a => a == animator))
+		if (!animList.Any (a => a == animator) || animList.Count == 0)
 		{
 			animList.Add (animator);
-			quoteCtrl.Add (new QuoteController ());
+			QuoteController c = gameObject.AddComponent<QuoteController>();
+			quoteCtrl.Add (c);
 		}
 		int CtrlIndex = animList.IndexOf (animator);
 		PlaceQuote (animator, PlaceBone, imRect, PlaceOffset, anchor);
@@ -76,7 +77,7 @@ public class Quote : MonoBehaviour
 		{
 			panel.SetAnchor (anchor);
 			panel.position = Camera.main.WorldToScreenPoint (animator.GetBoneTransform (PlaceBone).position)+
-				PlaceOffset + new Vector3 (panel.sizeDelta.x, panel.sizeDelta.y, 0);
+				PlaceOffset;
 		}
 	}
 	void QuoteEnter (QuoteStyles styles, int ctrlIndex)
@@ -121,6 +122,7 @@ public class Quote : MonoBehaviour
 	}
 	void QuoteExit (QuoteStyles styles, int ctrlIndex)
 	{
+		Debug.Log("run");
 		quoteCtrl[ctrlIndex].list.Remove (styles);
 		switch (styles.alphaStyle)
 		{
