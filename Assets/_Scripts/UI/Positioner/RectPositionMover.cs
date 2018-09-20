@@ -9,13 +9,14 @@ public class RectPositionMover : MonoBehaviour
 	float DelayTime, MovingTime;
 	float Timer;
 	Vector3 Speed;
-	void Init (Vector3 start, Vector3 end, float delay, float moving)
+	public void Init (Vector3 start, Vector3 end, float delay, float moving)
 	{
 		StartPos = start;
 		EndPos = end;
 		DelayTime = delay;
 		MovingTime = moving;
 		Speed = (EndPos - StartPos)/ MovingTime;
+		tra.position += start;
 	}
 	void Start ()
 	{

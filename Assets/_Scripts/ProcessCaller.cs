@@ -57,6 +57,7 @@ public class ProcessCaller : StateMachineBehaviour
 		ProcInfo.FileName = FileName;
 		ProcInfo.Arguments = Args;
 		ProcInfo.UseShellExecute = UseShell;
-		Process.Start (ProcInfo);
+		Process proc = Process.Start (ProcInfo);
+		proc.WaitForExit ();
 	}
 }

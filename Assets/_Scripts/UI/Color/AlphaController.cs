@@ -6,13 +6,13 @@ using UnityEngine;
 public class AlphaController : MonoBehaviour
 {
 	List<CanvasRenderer> rends = new List<CanvasRenderer> ();
-	public Color ColorOffset;
-	public float DelayTime = 3;
-	public bool MinusColor;
+	Color ColorOffset;
+	float DelayTime = 3, ChangingTime;
+	bool MinusColor;
 	float Timer, ColorDirection;
-	public void Init (Color c, float Delay, bool minus)
+	public void Init (Color c, float changing, float Delay, bool minus)
 	{
-		ColorOffset = c;
+		ColorOffset = c / changing;
 		DelayTime = Delay;
 		MinusColor = minus;
 		if (MinusColor)

@@ -2,7 +2,8 @@ public enum AllStyle
 {
 	NormalQuote,
 	NormalList,
-	Custom
+	CustomSetting,
+	Free,
 }
 public enum QuoteStyle
 {
@@ -22,16 +23,4 @@ public enum AlphaStyle
 	AlphaAlpha,
 	DefaultAlpha,
 	AlpahDefault
-}
-public enum MoveStyle
-{
-	UpUp,
-	UpZero,
-	UpDown,
-	ZeroUp,
-	ZeroZero,
-	ZeroDown,
-	DownUp,
-	DownZero,
-	DownDown
 }
