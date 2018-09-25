@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exeType: 0
   DelayTime: 0
+  allStyle: 0
   QuoteString: '<size=60>Animator
 
     Connect
@@ -78,6 +79,13 @@ MonoBehaviour:
   PlaceOffset: {x: -200, y: 0}
   PanelCollar: {x: 10, y: 10}
   anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
 --- !u!114 &114344006537996194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exeType: 2
   DelayTime: 5
+  allStyle: 0
   QuoteString: '<size=30>TestQuote2</size>
 
     <color=blue><size=60>Test
@@ -102,6 +111,31 @@ MonoBehaviour:
   PlaceOffset: {x: -200, y: 0}
   PanelCollar: {x: 10, y: 10}
   anchor: 8
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+--- !u!114 &114554851173530038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb01d52ab5150a4ca7fc147521c3cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 95775901968037930, guid: b853fd2c4081f124d84e36f12c8c3ba4, type: 2}
+  exeType: 0
+  DelayTime: 0
+  IntParams: []
+  FloatParams: []
+  BoolParams: []
+  TriggerParams: []
 --- !u!114 &114629287852781420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exeType: 0
   DelayTime: 0
+  allStyle: 0
   QuoteString: "<size=30>This is \nTest Quote\n<color=red>This is \nTest Quote</color></size>"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
   TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -180,6 +215,13 @@ MonoBehaviour:
   PlaceOffset: {x: -200, y: 0}
   PanelCollar: {x: 10, y: 10}
   anchor: 8
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
 --- !u!1101 &1101032402784704538
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -242,7 +284,6 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 114890020805033180}
   - {fileID: 114344006537996194}
-  - {fileID: 114812539618917812}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -269,9 +310,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 1101920966813645766}
   m_StateMachineBehaviours:
-  - {fileID: 114629287852781420}
-  - {fileID: 114059591712246580}
   - {fileID: 114293655226771890}
+  - {fileID: 114554851173530038}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

@@ -7,8 +7,7 @@ public class AssetBundleLoader : MonoBehaviour
 	[SerializeField] public Object AllowedUserWarning, ViolenceWarning, SextialWarning, CommartialWarning;
 	public IEnumerator LoadAssetBundle (string path, GameObject currentModel)
 	{
-		string lower8 = path.Substring (path.Length - 8).ToLower ();
-		if (lower8 == "manifest")
+		if (StringUtil.TailMatch (path, "manifest"))
 		{
 			path = path.Substring (0, path.Length - 9);
 		}
@@ -21,28 +20,24 @@ public class AssetBundleLoader : MonoBehaviour
 
 		foreach (string name in assetbundle.GetAllAssetNames ())
 		{
-			if (name.Substring (name.Length - 7)== ".prefab")
+			if (StringUtil.TailMatch (name, ".prefab"))
 			{
-				char[] slash = new char[] { '/' };
-				var objName = name.Split (slash);
-				string s = objName[objName.Length - 1].Substring (0, objName[objName.Length - 1].Length - 7);
-
+				string s = StringUtil.FileName (name);
 				var resultObject = assetbundle.LoadAssetAsync<GameObject> (s);
 				yield return new WaitWhile (()=> resultObject.isDone == false);
 
 				var obj = (GameObject)Instantiate (resultObject.asset);
-				if (obj.GetComponent<Settings4VRM> ())
+
+				LicenseCheck (currentModel, obj.GetComponent<Settings4VRM> ());
+				if (s == "Menu")
 				{
-					LicenseCheck (currentModel, obj.GetComponent<Settings4VRM> ());
+
 				}
 			}
-			if (name.Substring (name.Length - 11)== ".controller")
+			if (StringUtil.TailMatch (name, ".controller"))
 			{
-				char[] slash = new char[] { '/' };
-				var objName = name.Split (slash);
-				string s = objName[objName.Length - 1].Substring (0, objName[objName.Length - 1].Length - 11);
-
-				var resultObject = assetbundle.LoadAsset (s)as RuntimeAnimatorController;
+				string s = StringUtil.FileName (name);
+				var resultObject = assetbundle.LoadAsset<RuntimeAnimatorController> (s);
 
 				if (currentModel.GetComponent<Animator> ())
 				{
@@ -56,49 +51,35 @@ public class AssetBundleLoader : MonoBehaviour
 	}
 	void LicenseCheck (GameObject vrmModel, Settings4VRM setting)
 	{
+		if (setting != null)return;
 		VRMMeta meta = vrmModel.GetComponent<VRMMeta> ();
 		if (meta)
 		{
 			VRMMetaObject metaObj = meta.Meta;
 			if (metaObj.AllowedUser != AllowedUser.Everyone)
 			{
-				Destroy (vrmModel);
-				GameObject obj = (GameObject)Instantiate (AllowedUserWarning);
-				obj.transform.position = new Vector3 (0, 1, -1.5f);
-				obj.transform.rotation = Quaternion.Euler (0, 90, 0);
-				FindObjectOfType<VRMAnimLoader> ().currentModel = obj;
-				return;
+				WarningObjecs (vrmModel, AllowedUserWarning);
 			}
 			if (metaObj.ViolentUssage == UssageLicense.Disallow && setting.violent == UssageLicense.Allow)
 			{
-				Destroy (vrmModel);
-				GameObject obj = (GameObject)Instantiate (ViolenceWarning);
-				obj.transform.position = new Vector3 (0, 1, -1.5f);
-				obj.transform.rotation = Quaternion.Euler (0, 90, 0);
-				FindObjectOfType<VRMAnimLoader> ().currentModel = obj;
-
-				return;
+				WarningObjecs (vrmModel, ViolenceWarning);
 			}
 			if (metaObj.SexualUssage == UssageLicense.Disallow && setting.sexuality == UssageLicense.Allow)
 			{
-				Destroy (vrmModel);
-				GameObject obj = (GameObject)Instantiate (SextialWarning);
-				obj.transform.position = new Vector3 (0, 1, -1.5f);
-				obj.transform.rotation = Quaternion.Euler (0, 90, 0);
-				FindObjectOfType<VRMAnimLoader> ().currentModel = obj;
-
-				return;
+				WarningObjecs (vrmModel, SextialWarning);
 			}
 			if (metaObj.CommercialUssage == UssageLicense.Disallow && setting.commercial == UssageLicense.Allow)
 			{
-				Destroy (vrmModel);
-				GameObject obj = (GameObject)Instantiate (CommartialWarning);
-				obj.transform.position = new Vector3 (0, 1, -1.5f);
-				obj.transform.rotation = Quaternion.Euler (0, 90, 0);
-				FindObjectOfType<VRMAnimLoader> ().currentModel = obj;
-				return;
+				WarningObjecs (vrmModel, CommartialWarning);
 			}
 		}
-		return;
+	}
+	GameObject WarningObjecs (GameObject vrmModel, Object warning)
+	{
+		Destroy (vrmModel);
+		GameObject obj = (GameObject)Instantiate (warning);
+		obj.transform.position = new Vector3 (0, 1, -1.5f);
+		obj.transform.rotation = Quaternion.Euler (0, 90, 0);
+		return obj;
 	}
 }

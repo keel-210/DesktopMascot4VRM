@@ -70,16 +70,13 @@ public class VRMAnimLoader : MonoBehaviour
 	{
 		foreach (string path in files)
 		{
-			string ext = path.Substring (path.Length - 4).ToLower ();
-
 			// Open the VRM file if its extension is ".vrm".
-			if (ext == ".vrm")
+			if (StringUtil.TailMatch (path, ".vrm"))
 			{
 				LoadModel (path);
 				break;
 			}
-			string lower8 = path.Substring (path.Length - 8).ToLower ();
-			if (lower8 == ".unity3d" || lower8 == "manifest")
+			if (StringUtil.TailMatch (path, ".unity3d")|| StringUtil.TailMatch (path, "manifest"))
 			{
 				StartCoroutine (loader.LoadAssetBundle (path, currentModel));
 				break;

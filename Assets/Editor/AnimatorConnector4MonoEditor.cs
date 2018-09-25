@@ -7,13 +7,13 @@ using UnityEditorInternal;
 using UnityEngine;
 
 [CanEditMultipleObjects]
-[CustomEditor (typeof (AnimatorConnector))]
-public class AnimatorConnecterEditor : Editor
+[CustomEditor (typeof (AnimatorConnector4Mono))]
+public class AnimatorConnector4MonoEditor : Editor
 {
 	ReorderableList IntList, FloatList, BoolList, TriggerList;
 	void OnEnable ()
 	{
-		AnimatorConnector connector = target as AnimatorConnector;
+		AnimatorConnector4Mono connector = target as AnimatorConnector4Mono;
 
 		UnityEditor.Animations.AnimatorController AnimCtrl = null;
 		if (connector.anim)
@@ -156,10 +156,6 @@ public class AnimatorConnecterEditor : Editor
 	{
 		serializedObject.Update ();
 
-		var exeType = serializedObject.FindProperty ("exeType");
-		EditorGUILayout.PropertyField (exeType);
-		var DelayTime = serializedObject.FindProperty ("DelayTime");
-		EditorGUILayout.PropertyField (DelayTime);
 		var anim = serializedObject.FindProperty ("anim");
 		EditorGUILayout.PropertyField (anim);
 

@@ -6,13 +6,13 @@ using UnityEngine;
 public class AnimatorWriter2State : MonoBehaviour
 {
 	Animator anim;
-	AnimatorConnecter[] connecters;
+	AnimatorConnector[] connecters;
 	void Start ()
 	{
 		List<Animator> Animators = FindObjectsOfType<Animator> ().ToList ();
 		anim = GetComponent<Animator> ();
-		connecters = anim.GetBehaviours<AnimatorConnecter> ();
-		foreach (AnimatorConnecter c in connecters)
+		connecters = anim.GetBehaviours<AnimatorConnector> ();
+		foreach (AnimatorConnector c in connecters)
 		{
 			foreach (Animator a in Animators)
 			{

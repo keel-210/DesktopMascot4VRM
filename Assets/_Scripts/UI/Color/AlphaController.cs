@@ -54,12 +54,16 @@ public class AlphaController : MonoBehaviour
 			}
 			if (rends[0].GetColor ().a <= 0 && MinusColor)
 			{
-				Destroy (gameObject);
+				Destroy (this);
 			}
 			if (rends[0].GetColor ().a >= 1 && !MinusColor)
 			{
 				Destroy (this);
 			}
 		}
+	}
+	void OnDisable ()
+	{
+		Destroy (this);
 	}
 }
