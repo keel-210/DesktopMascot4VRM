@@ -31,7 +31,14 @@ public class AssetBundleLoader : MonoBehaviour
 				LicenseCheck (currentModel, obj.GetComponent<Settings4VRM> ());
 				if (s == "Menu")
 				{
-
+					obj.transform.parent = GameObject.Find ("Canvas").transform;
+					var newCtrl = obj.GetComponent<MenuController> ();
+					if (newCtrl)
+					{
+						var nowCtrl = GameObject.Find ("Canvas").GetComponent<MenuController> ();
+						nowCtrl = newCtrl;
+						Destroy (newCtrl);
+					}
 				}
 			}
 			if (StringUtil.TailMatch (name, ".controller"))

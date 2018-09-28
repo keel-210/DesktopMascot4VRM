@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuObj: {fileID: 1625416751}
-  UseRot: 0
+  UseRot: 1
   UseScale: 1
   UseAlpha: 1
   RotAngle: 360
@@ -6540,7 +6540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1625416752}
   m_Layer: 5
-  m_Name: Menus
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

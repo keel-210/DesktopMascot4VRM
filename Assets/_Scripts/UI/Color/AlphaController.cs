@@ -16,6 +16,7 @@ public class AlphaController : MonoBehaviour
 		list.Add (gameObject);
 		rends = list.Select (x => x.GetComponent<CanvasRenderer> ()).Where (r => r != null).ToList ();
 		ColorOffset = c / changing;
+		ChangingTime = changing;
 		DelayTime = Delay;
 		MinusColor = minus;
 		if (MinusColor)
@@ -41,17 +42,21 @@ public class AlphaController : MonoBehaviour
 	}
 	void Update ()
 	{
-		if (Timer < DelayTime)
+		if (Timer <= DelayTime)
 		{
 			Timer += Time.deltaTime;
 		}
-		else
+		else if (Timer <= DelayTime + ChangingTime)
 		{
+			Timer += Time.deltaTime;
 			foreach (CanvasRenderer r in rends)
 			{
 				Color c = r.GetColor ()+ ColorDirection * ColorOffset * Time.deltaTime;
 				r.SetColor (c);
 			}
+		}
+		else
+		{
 			if (rends[0].GetColor ().a <= 0 && MinusColor)
 			{
 				Destroy (this);
