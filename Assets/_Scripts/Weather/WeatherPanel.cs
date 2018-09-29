@@ -5,18 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class WeatherPanel : MonoBehaviour
 {
-	Dropdown Area, City;
-	Text text;
+	[SerializeField] Dropdown Area, City;
+	[SerializeField] Text text;
 	WeatherData datas;
 	void Start ()
 	{
 		transform.parent = GameObject.Find ("Canvas").transform;
-		gameObject.AddComponent<RectTransform> ();
-		gameObject.AddComponent<Image> ();
-		var areaDropDown = (GameObject)Instantiate (Resources.Load ("_Prefabs/uGUI/DropDown"));
-		Area = areaDropDown.GetComponent<Dropdown> ();
-		var cityDropDown = (GameObject)Instantiate (Resources.Load ("_Prefabs/uGUI/DropDown"));
-		City = cityDropDown.GetComponent<Dropdown> ();
+	}
+	void OnEnable ()
+	{
+
 	}
 	public void Init (string area, string city)
 	{
@@ -29,7 +27,9 @@ public class WeatherPanel : MonoBehaviour
 		List<Dropdown.OptionData> options = new List<Dropdown.OptionData> ();
 		for (int i = 0; i < WeatherCityID.area.Count; i++)
 		{
-			options[i].text = WeatherCityID.area[i];
+			Dropdown.OptionData o = new Dropdown.OptionData ();
+			o.text = WeatherCityID.area[i];
+			options.Add (o);
 			if (area == WeatherCityID.area[i])
 			{
 				Area.value = i;
@@ -42,7 +42,9 @@ public class WeatherPanel : MonoBehaviour
 		List<Dropdown.OptionData> options = new List<Dropdown.OptionData> ();
 		for (int i = 0; i < WeatherCityID.citys[Area.value].Count; i++)
 		{
-			options[i].text = WeatherCityID.citys[Area.value][i];
+			Dropdown.OptionData o = new Dropdown.OptionData ();
+			o.text = WeatherCityID.citys[Area.value][i];
+			options.Add (o);
 			if (city == WeatherCityID.citys[Area.value][i])
 			{
 				City.value = i;
@@ -56,9 +58,15 @@ public class WeatherPanel : MonoBehaviour
 	}
 	IEnumerator Report ()
 	{
-		var cityName = City.options[City.value].text;
-		var cityNum = WeatherCityID.cityID[cityName];
-		Weather w = new Weather (cityNum);
+		int cityName = WeatherCityID.cityID[City.options[City.value].text];
+		Weather w = gameObject.AddComponent<Weather> ();
+		w.cityNumber = cityName;
+		w.Report ();
+		Debug.Log (w.weatherData == null);
+		if (w.weatherData == null)
+		{
+			yield return null;
+		}
 		yield return w.weatherData;
 		datas = w.weatherData;
 		PlaceText ();
@@ -66,7 +74,10 @@ public class WeatherPanel : MonoBehaviour
 	}
 	void PlaceText ()
 	{
-		text.text = DateTime.Parse (datas.publicTime).ToString ()+ "\n" + datas.title + "\n" + datas.description.text;
+		if (datas != null)
+		{
+			text.text = DateTime.Parse (datas.publicTime).ToString ()+ "\n" + datas.title + "\n" + datas.description.text;
+		}
 	}
 	void PlaceImage ()
 	{

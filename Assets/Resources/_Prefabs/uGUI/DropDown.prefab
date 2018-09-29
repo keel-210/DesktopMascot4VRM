@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114970665402352618}
   - component: {fileID: 114038730793715620}
   m_Layer: 5
-  m_Name: Area
+  m_Name: DropDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
