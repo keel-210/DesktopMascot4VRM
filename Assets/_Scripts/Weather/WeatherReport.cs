@@ -35,6 +35,10 @@ public class WeatherReport : MonoBehaviour
 		var obj = (GameObject)Instantiate (Resources.Load ("_Prefabs/uGUI/WeatherPanel"));
 		WeatherPanel p = obj.GetComponent<WeatherPanel> ();
 		panels.Add (p);
+		if (panels.Count == 1)
+		{
+			p.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (Screen.width / 2, Screen.height / 2, 0);
+		}
 		lRect.list.Add (p.GetComponent<RectTransform> ());
 	}
 }

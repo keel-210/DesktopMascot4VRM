@@ -14,7 +14,7 @@ public class WeatherPanel : MonoBehaviour
 	}
 	void OnEnable ()
 	{
-
+		//ReportReload ();
 	}
 	public void Init (string area, string city)
 	{
@@ -37,7 +37,7 @@ public class WeatherPanel : MonoBehaviour
 		}
 		Area.options = options;
 	}
-	void CitySelect (string city)
+	public void CitySelect (string city)
 	{
 		List<Dropdown.OptionData> options = new List<Dropdown.OptionData> ();
 		for (int i = 0; i < WeatherCityID.citys[Area.value].Count; i++)

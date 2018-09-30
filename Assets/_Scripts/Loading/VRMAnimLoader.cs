@@ -27,11 +27,11 @@ public class VRMAnimLoader : MonoBehaviour
 	AssetBundleLoader loader;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
 		if (!cameraController)
 		{
-			cameraController = FindObjectOfType<CameraController> ();
+			cameraController = FindObjectOfType<CameraController>();
 			if (cameraController)
 			{
 				originalWheelMode = cameraController.wheelMode;
@@ -39,16 +39,16 @@ public class VRMAnimLoader : MonoBehaviour
 		}
 
 		// Initialize window manager
-		windowController = FindObjectOfType<WindowController> ();
+		windowController = FindObjectOfType<WindowController>();
 		if (windowController)
 		{
 			// Add a file drop handler.
 			windowController.OnFilesDropped += Window_OnFilesDropped;
 		}
-		loader = FindObjectOfType<AssetBundleLoader> ();
+		loader = FindObjectOfType<AssetBundleLoader>();
 	}
 
-	void Update ()
+	void Update()
 	{
 		// ホイール操作は不透明なところでのみ受け付けさせる
 		if (windowController && cameraController)
@@ -66,53 +66,52 @@ public class VRMAnimLoader : MonoBehaviour
 		}
 	}
 
-	private void Window_OnFilesDropped (string[] files)
+	private void Window_OnFilesDropped(string[] files)
 	{
 		foreach (string path in files)
 		{
 			// Open the VRM file if its extension is ".vrm".
-			if (StringUtil.TailMatch (path, ".vrm"))
+			if (StringUtil.TailMatch(path, ".vrm"))
 			{
-				LoadModel (path);
+				LoadModel(path);
 				break;
 			}
-			if (StringUtil.TailMatch (path, ".unity3d")|| StringUtil.TailMatch (path, "manifest"))
+			if (StringUtil.TailMatch(path, ".unity3d")|| StringUtil.TailMatch(path, "manifest"))
 			{
-				StartCoroutine (loader.LoadAssetBundle (path, currentModel));
+				StartCoroutine(loader.LoadAssetBundle(path, currentModel));
 				break;
 			}
 		}
 	}
 
-	private void LoadModel (string path)
+	private void LoadModel(string path)
 	{
-		if (!File.Exists (path))return;
+		if (!File.Exists(path))return;
 
 		GameObject newModel = null;
 
 		try
 		{
-			byte[] bytes = File.ReadAllBytes (path);
-			context = new VRMImporterContext (UniGLTF.UnityPath.FromFullpath (path));
-			context.ParseGlb (bytes);
-			VRMImporter.LoadFromBytes (context);
+			byte[] bytes = File.ReadAllBytes(path);
+			context = new VRMImporterContext(UniGLTF.UnityPath.FromFullpath(path));
+			context.ParseGlb(bytes);
+			VRMImporter.LoadFromBytes(context);
 
 			newModel = context.Root;
-			meta = context.ReadMeta ();
-			if (currentModel.GetComponent<Animator> ())
+			meta = context.ReadMeta();
+			if (currentModel.GetComponent<Animator>())
 			{
-				newModel.GetComponent<Animator> ().runtimeAnimatorController = currentModel.GetComponent<Animator> ().runtimeAnimatorController;
-				FindObjectOfType<ClickBoneObserver> ().anim = newModel.GetComponent<Animator> ();
-				FindObjectOfType<HumanCollider> ().Adjust4Model ();
+				newModel.GetComponent<Animator>().runtimeAnimatorController = currentModel.GetComponent<Animator>().runtimeAnimatorController;
+				FindObjectOfType<ClickBoneObserver>().anim = newModel.GetComponent<Animator>();
+				FindObjectOfType<HumanCollider>().Adjust4Model();
 			}
-			Destroy (currentModel);
+			Destroy(currentModel);
 			currentModel = newModel;
 		}
 		catch (Exception ex)
 		{
-			Debug.LogError (ex);
+			Debug.LogError(ex);
 			return;
 		}
 	}
-
 }

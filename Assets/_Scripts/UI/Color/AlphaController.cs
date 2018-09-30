@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class AlphaController : MonoBehaviour
 {
-	List<CanvasRenderer> rends = new List<CanvasRenderer> ();
+	List<CanvasRenderer> rends = new List<CanvasRenderer>();
+	List<float> alphas = new List<float>();
 	Color ColorOffset;
-	float DelayTime = 3, ChangingTime;
+	float DelayTime, ChangingTime;
 	bool MinusColor;
 	float Timer, ColorDirection;
-	public void Init (Color c, float changing, float Delay, bool minus)
+	public void Init(float changing, float Delay, bool minus)
 	{
-		List<GameObject> list = GetAllChildren.GetAll (gameObject);
-		list.Add (gameObject);
-		rends = list.Select (x => x.GetComponent<CanvasRenderer> ()).Where (r => r != null).ToList ();
-		ColorOffset = c / changing;
+		List<GameObject> list = GetAllChildren.GetAll(gameObject);
+		rends = list.Select(x => x.GetComponent<CanvasRenderer>()).Where(r => r != null).ToList();
+		alphas = rends.Select(item => item.GetAlpha()/ changing).ToList();
 		ChangingTime = changing;
 		DelayTime = Delay;
 		MinusColor = minus;
@@ -26,49 +26,45 @@ public class AlphaController : MonoBehaviour
 		else
 		{
 			ColorDirection = 1;
-			foreach (CanvasRenderer r in rends)
-			{
-				Color color = r.GetColor ();
-				color = new Color (color.r, color.g, color.b, 0);
-				r.SetColor (color);
-			}
+			rends.ForEach(r => r.SetAlpha(0));
 		}
+		Timer = 0;
 	}
-	void Start ()
+	void Start()
 	{
-		List<GameObject> list = GetAllChildren.GetAll (gameObject);
-		list.Add (gameObject);
-		rends = list.Select (x => x.GetComponent<CanvasRenderer> ()).Where (r => r != null).ToList ();
+		List<GameObject> list = GetAllChildren.GetAll(gameObject);
+		list.Add(gameObject);
 	}
-	void Update ()
+	void Update()
 	{
 		if (Timer <= DelayTime)
 		{
 			Timer += Time.deltaTime;
+			if (!MinusColor)
+			{
+				rends.ForEach(r => r.SetAlpha(0));
+			}
 		}
 		else if (Timer <= DelayTime + ChangingTime)
 		{
 			Timer += Time.deltaTime;
-			foreach (CanvasRenderer r in rends)
+			for (int i = 0; i < rends.Count; i++)
 			{
-				Color c = r.GetColor ()+ ColorDirection * ColorOffset * Time.deltaTime;
-				r.SetColor (c);
+				float c = rends[i].GetAlpha()+ ColorDirection * alphas[i] * Time.deltaTime;
+				rends[i].SetAlpha(c);
 			}
 		}
 		else
 		{
-			if (rends[0].GetColor ().a <= 0 && MinusColor)
+			for (int i = 0; i < rends.Count; i++)
 			{
-				Destroy (this);
+				rends[i].SetAlpha(alphas[i] * ChangingTime);
 			}
-			if (rends[0].GetColor ().a >= 1 && !MinusColor)
-			{
-				Destroy (this);
-			}
+			Destroy(this);
 		}
 	}
-	void OnDisable ()
+	void OnDisable()
 	{
-		Destroy (this);
+		Destroy(this);
 	}
 }
