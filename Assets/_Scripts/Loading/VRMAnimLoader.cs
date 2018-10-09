@@ -15,29 +15,13 @@ using VRM;
 public class VRMAnimLoader : MonoBehaviour
 {
 	private WindowController windowController;
-
 	private VRMImporterContext context;
 	private VRMMetaObject meta;
-
-	public CameraController cameraController;
-	public Transform cameraTransform;
-
-	private CameraController.WheelMode originalWheelMode;
 	[SerializeField] public GameObject currentModel;
 	AssetBundleLoader loader;
 
-	// Use this for initialization
 	void Start()
 	{
-		if (!cameraController)
-		{
-			cameraController = FindObjectOfType<CameraController>();
-			if (cameraController)
-			{
-				originalWheelMode = cameraController.wheelMode;
-			}
-		}
-
 		// Initialize window manager
 		windowController = FindObjectOfType<WindowController>();
 		if (windowController)
@@ -46,24 +30,6 @@ public class VRMAnimLoader : MonoBehaviour
 			windowController.OnFilesDropped += Window_OnFilesDropped;
 		}
 		loader = FindObjectOfType<AssetBundleLoader>();
-	}
-
-	void Update()
-	{
-		// ホイール操作は不透明なところでのみ受け付けさせる
-		if (windowController && cameraController)
-		{
-			Vector2 pos = Input.mousePosition;
-			bool inScreen = (pos.x >= 0 && pos.x < Screen.width && pos.y >= 0 && pos.y < Screen.height);
-			if (windowController.isFocusable && inScreen)
-			{
-				cameraController.wheelMode = originalWheelMode;
-			}
-			else
-			{
-				cameraController.wheelMode = CameraController.WheelMode.None;
-			}
-		}
 	}
 
 	private void Window_OnFilesDropped(string[] files)
@@ -89,7 +55,6 @@ public class VRMAnimLoader : MonoBehaviour
 		if (!File.Exists(path))return;
 
 		GameObject newModel = null;
-
 		try
 		{
 			byte[] bytes = File.ReadAllBytes(path);

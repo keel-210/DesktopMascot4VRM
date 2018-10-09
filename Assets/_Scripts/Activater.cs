@@ -5,17 +5,25 @@ using UnityEngine;
 
 public class Activater : MonoBehaviour
 {
-	public List<GameObject> list = new List<GameObject> ();
-	public void Activate ()
+	public List<GameObject> list = new List<GameObject>();
+	[SerializeField] bool DisableDeactivate;
+	public void Activate()
 	{
-		list.ForEach (item => item.SetActive (true));
+		list.ForEach(item => item.SetActive(true));
 	}
-	public void DeActivate ()
+	public void DeActivate()
 	{
-		list.ForEach (item => item.SetActive (false));
+		list.ForEach(item => item.SetActive(false));
 	}
-	public void ActiveInverce ()
+	public void ActiveInverce()
 	{
-		list.ForEach (item => item.SetActive (!item.activeInHierarchy));
+		list.ForEach(item => item.SetActive(!item.activeInHierarchy));
+	}
+	void OnDisable()
+	{
+		if (DisableDeactivate)
+		{
+			DeActivate();
+		}
 	}
 }

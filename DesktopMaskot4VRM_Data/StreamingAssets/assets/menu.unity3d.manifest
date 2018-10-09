@@ -1,0 +1,65 @@
+ManifestFileVersion: 0
+CRC: 1231259569
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f8b695ad56c0deb7b4e25d43021985a1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4bac89bd277403364dbb8c8107370cae
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0b9345a161ab0ba44b79aaecdaa06432, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c17890e1fbb552e4784176817db8bfdf, type: 3}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6cb01d52ab5150a4ca7fc147521c3cf1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 65d7ea18ec4b0c6489a38b14aa036416, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/TestCtrls/MenuCtrl/MenuCtrl.controller
+- Assets/TestCtrls/MenuCtrl/unitychan.prefab
+- Assets/TestCtrls/MenuCtrl/Menu.prefab
+Dependencies:
+- C:/Users/KEEL/Documents/DesktopMascot4VRM/Assets/StreamingAssets/assets/soul.unity3d

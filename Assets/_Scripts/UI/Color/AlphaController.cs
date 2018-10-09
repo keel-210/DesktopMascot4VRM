@@ -14,6 +14,7 @@ public class AlphaController : MonoBehaviour
 	public void Init(float changing, float Delay, bool minus)
 	{
 		List<GameObject> list = GetAllChildren.GetAll(gameObject);
+		list.Add(gameObject);
 		rends = list.Select(x => x.GetComponent<CanvasRenderer>()).Where(r => r != null).ToList();
 		alphas = rends.Select(item => item.GetAlpha()/ changing).ToList();
 		ChangingTime = changing;
@@ -29,11 +30,6 @@ public class AlphaController : MonoBehaviour
 			rends.ForEach(r => r.SetAlpha(0));
 		}
 		Timer = 0;
-	}
-	void Start()
-	{
-		List<GameObject> list = GetAllChildren.GetAll(gameObject);
-		list.Add(gameObject);
 	}
 	void Update()
 	{
@@ -58,7 +54,14 @@ public class AlphaController : MonoBehaviour
 		{
 			for (int i = 0; i < rends.Count; i++)
 			{
-				rends[i].SetAlpha(alphas[i] * ChangingTime);
+				if (MinusColor)
+				{
+					rends[i].SetAlpha(0);
+				}
+				else
+				{
+					rends[i].SetAlpha(alphas[i] * ChangingTime);
+				}
 			}
 			Destroy(this);
 		}

@@ -4,24 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 public class AnimatorConnector : StateMachineBehaviour
 {
-	public Animator anim = new Animator ();
+	public Animator anim = new Animator();
 	public ExecuteType exeType;
 	public float DelayTime;
-	public List<IntParam> IntParams = new List<IntParam> ();
-	public List<FloatParam> FloatParams = new List<FloatParam> ();
-	public List<BoolParam> BoolParams = new List<BoolParam> ();
-	public List<TriggerParam> TriggerParams = new List<TriggerParam> ();
+	public List<IntParam> IntParams = new List<IntParam>();
+	public List<FloatParam> FloatParams = new List<FloatParam>();
+	public List<BoolParam> BoolParams = new List<BoolParam>();
+	public List<TriggerParam> TriggerParams = new List<TriggerParam>();
 	float Timer;
 	bool Executed;
-	public override void OnStateEnter (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		if (exeType == ExecuteType.Enter)
 		{
-			SetAnimCtrlParams ();
+			SetAnimCtrlParams();
 		}
 
 	}
-	public override void OnStateUpdate (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		if (exeType == ExecuteType.Delay || exeType == ExecuteType.DelayStay)
 		{
@@ -33,44 +33,43 @@ public class AnimatorConnector : StateMachineBehaviour
 			{
 				if (exeType == ExecuteType.DelayStay)
 				{
-					SetAnimCtrlParams ();
+					SetAnimCtrlParams();
 				}
 				else if (!Executed)
 				{
-					SetAnimCtrlParams ();
+					SetAnimCtrlParams();
 				}
 			}
 		}
 		if (exeType == ExecuteType.UpdateStay)
 		{
-			SetAnimCtrlParams ();
+			SetAnimCtrlParams();
 		}
 	}
-	public override void OnStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		if (exeType == ExecuteType.Exit)
 		{
-			SetAnimCtrlParams ();
+			SetAnimCtrlParams();
 		}
 	}
-	void SetAnimCtrlParams ()
+	void SetAnimCtrlParams()
 	{
 		foreach (IntParam i in IntParams)
 		{
-			anim.SetInteger (i.name, i.value);
-			Debug.Log (i.name + i.value);
+			anim.SetInteger(i.name, i.value);
 		}
 		foreach (FloatParam f in FloatParams)
 		{
-			anim.SetFloat (f.name, f.value);
+			anim.SetFloat(f.name, f.value);
 		}
 		foreach (BoolParam b in BoolParams)
 		{
-			anim.SetBool (b.name, b.value);
+			anim.SetBool(b.name, b.value);
 		}
 		foreach (TriggerParam t in TriggerParams)
 		{
-			anim.SetTrigger (t.name);
+			anim.SetTrigger(t.name);
 		}
 		Executed = true;
 	}

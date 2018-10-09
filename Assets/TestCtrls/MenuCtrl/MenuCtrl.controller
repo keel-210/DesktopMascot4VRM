@@ -7,7 +7,13 @@ AnimatorController:
   m_PrefabInternal: {fileID: 0}
   m_Name: MenuCtrl
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: State
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -21,6 +27,823 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &114090394139179150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 12
+  allStyle: 0
+  QuoteString: "\u305D\u308C\u3067\u306F..."
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114104393611399840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb01d52ab5150a4ca7fc147521c3cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 95538971991206746, guid: baab715964d739041a510c08b0d4ada7, type: 2}
+  exeType: 0
+  DelayTime: 16
+  IntParams:
+  - name: State
+    value: 3
+    hash: 0
+  FloatParams: []
+  BoolParams: []
+  TriggerParams: []
+--- !u!114 &114112639793255340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 0
+  DelayTime: 0
+  allStyle: 0
+  QuoteString: "\u6B21\u306B\u5929\u6C17\u4E88\u5831\u3067\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114147655585867042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 8
+  allStyle: 0
+  QuoteString: "\u307E\u305F\u6C17\u304C\u5411\u3044\u305F\u3089\n\u958B\u767A\u3092\u9032\u3081\u3066\u3044\u304F\n\u304B\u3082\u3057\u308C\u307E\u305B\u3093\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114179755448987122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 0
+  DelayTime: 0
+  allStyle: 0
+  QuoteString: "Ver0.30\u3067\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114212642456005810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 8
+  allStyle: 0
+  QuoteString: "Menu\u306F\n\u3053\u306E\u3088\u3046\u306B\n\u5165\u308C\u66FF\u3048\u308B\n\u3053\u3068\u304C\u3067\u304D\u3001"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114249296503647992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 4
+  allStyle: 0
+  QuoteString: "\u3053\u306E\u3088\u3046\u306B\u5929\u6C17\u4E88\u5831\u304C\n\u8868\u793A\u3055\u308C\u307E\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114254968917874206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 4
+  allStyle: 0
+  QuoteString: "\u306A\u3093\u3068\u306A\u304F\u5225\u306E\u3053\u3068\u304C\n\u3084\u308A\u305F\u304F\u306A\u3063\u305F\u306E\u3067"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114255143450776676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 12
+  allStyle: 0
+  QuoteString: "\u81EA\u7531\u306B\n\u4F5C\u6210\u3057\u305F\u3082\u306E\u3092\n\u8AAD\u307F\u8FBC\u3081\u307E\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114358087556900228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 10
+  allStyle: 0
+  QuoteString: "\u4ECA\u56DE\u306E\u6A5F\u80FD\u306F"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114442677942748644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb01d52ab5150a4ca7fc147521c3cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 95538971991206746, guid: baab715964d739041a510c08b0d4ada7, type: 2}
+  exeType: 2
+  DelayTime: 16
+  IntParams:
+  - name: State
+    value: 2
+    hash: 0
+  FloatParams: []
+  BoolParams: []
+  TriggerParams: []
+--- !u!114 &114493832341768336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 6
+  allStyle: 0
+  QuoteString: "\u4ECA\u56DE\u306E\u6A5F\u80FD\u3092\n\u7D39\u4ECB\u3057\u3066\u3044\u304D\u307E\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114569042699239998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 12
+  allStyle: 0
+  QuoteString: "WeatherHacks\u3092\n\u4F7F\u7528\u3057\u3066\u3044\u307E\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114572326304629562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 22
+  allStyle: 0
+  QuoteString: "\u4EE5\u4E0A\u3067\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114581466654921072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 8
+  allStyle: 0
+  QuoteString: "\u4E88\u5831\u306E\u53D6\u5F97\u306B\u306F\nlivedoor\u306E"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114705833913095812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 18
+  allStyle: 0
+  QuoteString: "2.\u5929\u6C17\u4E88\u5831"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114774761651120372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 14
+  allStyle: 0
+  QuoteString: "1.Menu\u6A5F\u80FD"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114808651236578682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb01d52ab5150a4ca7fc147521c3cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 95538971991206746, guid: baab715964d739041a510c08b0d4ada7, type: 2}
+  exeType: 2
+  DelayTime: 26
+  IntParams:
+  - name: State
+    value: 1
+    hash: 0
+  FloatParams: []
+  BoolParams: []
+  TriggerParams: []
+--- !u!114 &114830198006792974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 0
+  DelayTime: 0
+  allStyle: 0
+  QuoteString: "\u3055\u3066\u4ECA\u56DE\u3092\u4EE5\u3066\n\u52D5\u753B\u306F\u3044\u3063\u305F\u3093\n\u304A\u4F11\u307F\u3057\u307E\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114862986327132964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 0
+  DelayTime: 0
+  allStyle: 0
+  QuoteString: "\u307E\u305AMenu\u6A5F\u80FD\u304B\u3089\n\u7D39\u4ECB\u3057\u307E\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114904934494565428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 4
+  allStyle: 0
+  QuoteString: "\u53F3\u30AF\u30EA\u30C3\u30AF\u3067\nMenu\u304C\u958B\u304D\u307E\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!1101 &1101470467221502110
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 3
+    m_ConditionEvent: State
+    m_EventTreshold: 2
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102704574024311122}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &1101494391333883952
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 3
+    m_ConditionEvent: State
+    m_EventTreshold: 1
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102201541335411604}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9698795
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &1101575991928196314
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 3
+    m_ConditionEvent: State
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102624017993269032}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9698795
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1102 &1102201541335411604
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 1101470467221502110}
+  m_StateMachineBehaviours:
+  - {fileID: 114104393611399840}
+  - {fileID: 114112639793255340}
+  - {fileID: 114249296503647992}
+  - {fileID: 114581466654921072}
+  - {fileID: 114569042699239998}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 7567a7738adc0e14d9f71fd774277fc7, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &1102624017993269032
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 1
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 1101494391333883952}
+  m_StateMachineBehaviours:
+  - {fileID: 114442677942748644}
+  - {fileID: 114862986327132964}
+  - {fileID: 114904934494565428}
+  - {fileID: 114212642456005810}
+  - {fileID: 114255143450776676}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 7567a7738adc0e14d9f71fd774277fc7, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &1102679165113018914
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 0
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 1101575991928196314}
+  m_StateMachineBehaviours:
+  - {fileID: 114808651236578682}
+  - {fileID: 114179755448987122}
+  - {fileID: 114493832341768336}
+  - {fileID: 114358087556900228}
+  - {fileID: 114774761651120372}
+  - {fileID: 114705833913095812}
+  - {fileID: 114572326304629562}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 7567a7738adc0e14d9f71fd774277fc7, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &1102704574024311122
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 3
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours:
+  - {fileID: 114830198006792974}
+  - {fileID: 114254968917874206}
+  - {fileID: 114147655585867042}
+  - {fileID: 114090394139179150}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 7567a7738adc0e14d9f71fd774277fc7, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1107 &1107784046255716316
 AnimatorStateMachine:
   serializedVersion: 5
@@ -28,7 +851,19 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_ChildStates: []
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 1102679165113018914}
+    m_Position: {x: 264, y: 120, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102624017993269032}
+    m_Position: {x: 264, y: 192, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102201541335411604}
+    m_Position: {x: 264, y: 264, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102704574024311122}
+    m_Position: {x: 264, y: 336, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -38,4 +873,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 0}
+  m_DefaultState: {fileID: 1102679165113018914}

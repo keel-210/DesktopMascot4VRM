@@ -17,17 +17,19 @@ public class Quote : MonoBehaviour
 	public Vector3 MoveDirection;
 	public float MovingTime;
 	public BackImage BackImg;
+	public int FontSize;
+	public Font font;
 	List<QuoteController> quoteCtrl = new List<QuoteController>();
 	public void MakeQuote(Animator animator, string QuoteString, Color PanelColor, Color TextColor,
 		HumanBodyBones PlaceBone, Vector2 PlaceOffset, Vector2 PanelCollar, AnchorPresets anchor,
 		PivotPresets pivot, QuoteStyle quoteStyle, int ListMax, AlphaStyle alphaStyle, BackImage backImage, float alphaTime,
-		Vector3 moveDirection, float movingTime)
+		Vector3 moveDirection, float movingTime, int fontSize, Font font)
 	{
 		GameObject imObj = new GameObject();
 		RectTransform imRect = imObj.AddComponent<RectTransform>();
 		imRect.SetPivot(pivot);
 		imRect.SetAnchor(anchor);
-		imObj.transform.parent = GameObject.Find("Canvas").transform;
+		imObj.transform.SetParent(GameObject.Find("Canvas").GetComponent<RectTransform>());
 		Image image = imObj.AddComponent<Image>();
 		image.color = PanelColor;
 		if (backImage == BackImage.None)
@@ -45,7 +47,8 @@ public class Quote : MonoBehaviour
 		texObj.transform.parent = imObj.transform;
 		Text text = texObj.AddComponent<Text>();
 		text.supportRichText = true;
-		text.font = Font.CreateDynamicFontFromOSFont("Arial", 20);
+		text.font = font;
+		text.fontSize = fontSize;
 		text.text = QuoteString;
 		text.color = TextColor;
 
@@ -62,11 +65,15 @@ public class Quote : MonoBehaviour
 		}
 		int CtrlIndex = quoteCtrl.Select(q => q.anim).ToList().IndexOf(animator);
 		QuoteEnter(new QuoteStyles(imRect, PlaceBone, PlaceOffset, quoteStyle, alphaStyle, ListMax, alphaTime, movingTime, moveDirection), CtrlIndex);
+		imObj.transform.localScale = Vector3.one;
+		//imObj.SetActive(false);
+		//imObj.SetActive(true);
 	}
 	public void Settings(out Color panelColor, out Color textColor,
 		out HumanBodyBones placeBone, out Vector2 placeOffset, out Vector2 panelCollar,
 		out AnchorPresets anchor, out PivotPresets pivot, out QuoteStyle quoteStyle, out int listMax, out AlphaStyle _alphaStyle,
-		out float alphaChangingTime, out Vector3 moveDirection, out float movingTime, out BackImage backImage)
+		out float alphaChangingTime, out Vector3 moveDirection, out float movingTime,
+		out BackImage backImage, out int fontSize, out Font fonts)
 	{
 		panelColor = PanelColor;
 		textColor = TextColor;
@@ -82,21 +89,25 @@ public class Quote : MonoBehaviour
 		moveDirection = MoveDirection;
 		movingTime = MovingTime;
 		backImage = BackImg;
+		fontSize = FontSize;
+		fonts = font;
 	}
 	void QuoteEnter(QuoteStyles styles, int ctrlIndex)
 	{
 		switch (styles.quoteStyle)
 		{
 			case QuoteStyle.OnlyOne:
+				quoteCtrl[ctrlIndex].PlaceQuoteOnBone(styles);
 				if (quoteCtrl[ctrlIndex].list.Count > 0)
 				{
-					foreach (QuoteStyles s in quoteCtrl[ctrlIndex].list)
+					while (quoteCtrl[ctrlIndex].list.Count != 0)
 					{
-						QuoteExit(s, ctrlIndex);
+						QuoteExit(quoteCtrl[ctrlIndex].list[0], ctrlIndex);
 					}
 				}
 				break;
 			case QuoteStyle.Time:
+				quoteCtrl[ctrlIndex].PlaceQuoteOnBone(styles);
 				StartCoroutine(this.DelayMethod(3f, ()=> { QuoteExit(styles, ctrlIndex); }));
 				break;
 			case QuoteStyle.List:
@@ -136,13 +147,14 @@ public class Quote : MonoBehaviour
 				styles.panel.gameObject.AddComponent<AlphaDestroy>();
 				break;
 			default:
-				Destroy(styles.panel, styles.alphaTime > styles.moveTime ? styles.alphaTime : styles.moveTime);
+				Debug.Log("Delete");
+				Destroy(styles.panel.gameObject, styles.alphaTime >= styles.moveTime ? styles.alphaTime : styles.moveTime);
 				break;
 		}
 		if (styles.moveDirection != Vector3.zero)
 		{
 			RectPositionMover rect = styles.panel.gameObject.AddComponent<RectPositionMover>();
-			rect.Init(-styles.moveDirection, Vector3.zero, 0, styles.moveTime);
+			rect.Init(Vector3.zero, styles.moveDirection, 0, styles.moveTime);
 		}
 	}
 }

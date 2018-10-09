@@ -8,28 +8,24 @@ public class WeatherPanel : MonoBehaviour
 	[SerializeField] Dropdown Area, City;
 	[SerializeField] Text text;
 	WeatherData datas;
-	void Start ()
-	{
-		transform.parent = GameObject.Find ("Canvas").transform;
-	}
-	void OnEnable ()
+	void OnEnable()
 	{
 		//ReportReload ();
 	}
-	public void Init (string area, string city)
+	public void Init(string area, string city)
 	{
-		AreaSelect (area);
-		CitySelect (city);
-		StartCoroutine (Report ());
+		AreaSelect(area);
+		CitySelect(city);
+		StartCoroutine(Report());
 	}
-	public void AreaSelect (string area)
+	public void AreaSelect(string area)
 	{
-		List<Dropdown.OptionData> options = new List<Dropdown.OptionData> ();
+		List<Dropdown.OptionData> options = new List<Dropdown.OptionData>();
 		for (int i = 0; i < WeatherCityID.area.Count; i++)
 		{
-			Dropdown.OptionData o = new Dropdown.OptionData ();
+			Dropdown.OptionData o = new Dropdown.OptionData();
 			o.text = WeatherCityID.area[i];
-			options.Add (o);
+			options.Add(o);
 			if (area == WeatherCityID.area[i])
 			{
 				Area.value = i;
@@ -37,14 +33,14 @@ public class WeatherPanel : MonoBehaviour
 		}
 		Area.options = options;
 	}
-	public void CitySelect (string city)
+	public void CitySelect(string city)
 	{
-		List<Dropdown.OptionData> options = new List<Dropdown.OptionData> ();
+		List<Dropdown.OptionData> options = new List<Dropdown.OptionData>();
 		for (int i = 0; i < WeatherCityID.citys[Area.value].Count; i++)
 		{
-			Dropdown.OptionData o = new Dropdown.OptionData ();
+			Dropdown.OptionData o = new Dropdown.OptionData();
 			o.text = WeatherCityID.citys[Area.value][i];
-			options.Add (o);
+			options.Add(o);
 			if (city == WeatherCityID.citys[Area.value][i])
 			{
 				City.value = i;
@@ -52,39 +48,45 @@ public class WeatherPanel : MonoBehaviour
 		}
 		City.options = options;
 	}
-	public void ReportReload ()
+	public void ReportReload()
 	{
-		StartCoroutine (Report ());
+		StartCoroutine(Report());
 	}
-	IEnumerator Report ()
+	IEnumerator Report()
 	{
 		int cityName = WeatherCityID.cityID[City.options[City.value].text];
-		Weather w = gameObject.AddComponent<Weather> ();
+		Weather w = gameObject.GetComponent<Weather>();
+		if (w == null)
+		{
+			w = gameObject.AddComponent<Weather>();
+		}
 		w.cityNumber = cityName;
-		w.Report ();
-		Debug.Log (w.weatherData == null);
-		if (w.weatherData == null)
+		w.Report();
+		while (w.weatherData == null)
 		{
 			yield return null;
 		}
-		yield return w.weatherData;
 		datas = w.weatherData;
-		PlaceText ();
-		PlaceImage ();
+		PlaceText();
+		PlaceImage();
 	}
-	void PlaceText ()
+	IEnumerator WaitWeatherData()
+	{
+		yield return new WaitForEndOfFrame();
+	}
+	void PlaceText()
 	{
 		if (datas != null)
 		{
-			text.text = DateTime.Parse (datas.publicTime).ToString ()+ "\n" + datas.title + "\n" + datas.description.text;
+			text.text = DateTime.Parse(datas.publicTime).ToString()+ "\n" + datas.title + "\n" + datas.description.text;
 		}
 	}
-	void PlaceImage ()
+	void PlaceImage()
 	{
 
 	}
-	public void RemovePanel ()
+	public void RemovePanel()
 	{
-		Destroy (gameObject);
+		Destroy(gameObject);
 	}
 }

@@ -8,28 +8,30 @@ public class Weather : MonoBehaviour
 	//東京都のID
 	public int cityNumber = 130010;
 
-	public Weather (int _cityNumber)
+	public Weather(int _cityNumber)
 	{
 		cityNumber = _cityNumber;
-		Report ();
+		Report();
 	}
-	public void Report ()
+	public WeatherData Report()
 	{
-		string url = baseURL + "?city=" + cityNumber.ToString ("D6");
-		StartCoroutine (Get (url));
+		string url = baseURL + "?city=" + cityNumber.ToString("D6");
+		StartCoroutine(Get(url));
+		return weatherData;
 	}
-	IEnumerator Get (string url)
+	IEnumerator Get(string url)
 	{
-		WWW www = new WWW (url);
-		if (!string.IsNullOrEmpty (www.error))
+		weatherData = null;
+		WWW www = new WWW(url);
+		if (!string.IsNullOrEmpty(www.error))
 		{
 
-			Debug.LogError ("www Error:" + www.error);
+			Debug.LogError("www Error:" + www.error);
 			yield break;
 
 		}
 		yield return www;
-		WeatherData data = JsonUtility.FromJson<WeatherData> (www.text);
+		WeatherData data = JsonUtility.FromJson<WeatherData>(www.text);
 		weatherData = data;
 	}
 }

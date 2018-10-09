@@ -4,7 +4,7 @@ using VRM;
 
 public class AssetBundleLoader : MonoBehaviour
 {
-	[SerializeField] public Object AllowedUserWarning, ViolenceWarning, SextialWarning, CommartialWarning;
+	[SerializeField] Object AllowedUserWarning, ViolenceWarning, SextialWarning, CommartialWarning;
 	public IEnumerator LoadAssetBundle(string path, GameObject currentModel)
 	{
 		if (StringUtil.TailMatch(path, "manifest"))

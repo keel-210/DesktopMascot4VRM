@@ -11,10 +11,14 @@ public class MenuController : MonoBehaviour
 	LayerMask mask;
 	bool IsOpen;
 	List<GameObject> children = new List<GameObject>();
+	List<GameObject> AllChildren = new List<GameObject>();
 	void Start()
 	{
-		GetAllChildren.GetChildren(gameObject, ref children);
-		children.ForEach(item => item.SetActive(false));
+		foreach (Transform t in transform)
+		{
+			children.Add(t.gameObject);
+			t.gameObject.SetActive(false);
+		}
 		mask = LayerMask.NameToLayer("UI");
 	}
 	void Update()
