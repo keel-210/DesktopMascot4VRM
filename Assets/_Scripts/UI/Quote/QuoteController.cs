@@ -23,6 +23,14 @@ public class QuoteController : MonoBehaviour
 		styles.panel.position = Camera.main.WorldToScreenPoint(anim.GetBoneTransform(styles.bone).position)+ styles.PosOffset;
 		ListPos = ListQuotes.Where(item => item.panel != null).Select(s => s.panel.position).ToList();
 	}
+	public void AllQuoteDestroy()
+	{
+		for (int i = 0; i < list.Count; i++)
+		{
+			Destroy(list[i].panel.gameObject);
+		}
+		Destroy(this);
+	}
 	void Update()
 	{
 		if (prevCount > 0)

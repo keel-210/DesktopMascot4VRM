@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 2082679375
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 15de90b92324dc1948ebea26e9995b4a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1d81ba0640f4184ba9205f702ff7a237
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0b9345a161ab0ba44b79aaecdaa06432, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c17890e1fbb552e4784176817db8bfdf, type: 3}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 65d7ea18ec4b0c6489a38b14aa036416, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+Assets:
+- Assets/TestCtrls/BaseMenu/Menu.prefab
+Dependencies: []

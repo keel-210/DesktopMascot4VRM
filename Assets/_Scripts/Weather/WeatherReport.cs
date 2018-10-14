@@ -40,7 +40,7 @@ public class WeatherReport : MonoBehaviour
 			panels = panels.Where(item => item != null).ToList();
 		}
 		var obj = (GameObject)Instantiate(Resources.Load("_Prefabs/uGUI/WeatherPanel"));
-		obj.transform.parent = transform;
+		obj.transform.SetParent(GetComponent<RectTransform>());
 		WeatherPanel p = obj.GetComponent<WeatherPanel>();
 		panels.Add(p);
 		if (panels.Count == 1)

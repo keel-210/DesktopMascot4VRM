@@ -44,7 +44,7 @@ public class Quote : MonoBehaviour
 
 		GameObject texObj = new GameObject();
 		RectTransform tra = texObj.AddComponent<RectTransform>();
-		texObj.transform.parent = imObj.transform;
+		texObj.transform.SetParent(imObj.GetComponent<RectTransform>());
 		Text text = texObj.AddComponent<Text>();
 		text.supportRichText = true;
 		text.font = font;

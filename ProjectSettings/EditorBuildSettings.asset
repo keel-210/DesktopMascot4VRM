@@ -9,14 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
     path: Assets/Scenes/SampleScene 1.unity
     guid: 5ecbdc56cee979944bbfe74a03d32c7e
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/UniWinApi-master/Assets/UniWinApi/Examples/SimpleSample.unity
     guid: b650a883366376446b7db29169c59420

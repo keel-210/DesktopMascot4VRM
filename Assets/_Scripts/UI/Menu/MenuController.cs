@@ -9,16 +9,15 @@ public class MenuController : MonoBehaviour
 	[SerializeField] public bool UseRot, UseScale, UseAlpha;
 	[SerializeField] public float RotAngle, RotTime, ScaleTime, AlphaTime;
 	LayerMask mask;
-	bool IsOpen;
+	public bool IsOpen;
 	List<GameObject> children = new List<GameObject>();
-	List<GameObject> AllChildren = new List<GameObject>();
 	void Start()
 	{
 		foreach (Transform t in transform)
 		{
 			children.Add(t.gameObject);
-			t.gameObject.SetActive(false);
 		}
+		children.ForEach(item => item.SetActive(false));
 		mask = LayerMask.NameToLayer("UI");
 	}
 	void Update()
@@ -60,7 +59,7 @@ public class MenuController : MonoBehaviour
 		}
 		if (UseAlpha)
 		{
-			var alpha = gameObject.AddComponent<AlphaController>();
+			var alpha = gameObject.AddComponent<AlphaByCanvasGroup>();
 			alpha.Init(AlphaTime, 0, false);
 		}
 		children.ForEach(item => item.SetActive(true));
@@ -80,10 +79,12 @@ public class MenuController : MonoBehaviour
 		}
 		if (UseAlpha)
 		{
-			var alpha = gameObject.AddComponent<AlphaController>();
+			var alpha = gameObject.AddComponent<AlphaByCanvasGroup>();
 			alpha.Init(AlphaTime, 0, true);
 		}
-		StartCoroutine(this.DelayMethod(0.26f, ()=>
+		float[] times = { RotTime, ScaleTime, AlphaTime };
+		float maxTime = times.Max();
+		StartCoroutine(this.DelayMethod(maxTime, ()=>
 		{
 			children.ForEach(item => item.SetActive(false));
 			IsOpen = false;

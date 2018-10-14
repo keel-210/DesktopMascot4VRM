@@ -27,6 +27,37 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &114010784048167480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 4
+  allStyle: 0
+  QuoteString: "\u3084\u308A\u305F\u304F\u306A\u3063\u305F\u306E\u3067"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
 --- !u!114 &114090394139179150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exeType: 2
-  DelayTime: 12
+  DelayTime: 20
   allStyle: 0
   QuoteString: "\u305D\u308C\u3067\u306F..."
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
@@ -70,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95538971991206746, guid: baab715964d739041a510c08b0d4ada7, type: 2}
-  exeType: 0
-  DelayTime: 16
+  exeType: 2
+  DelayTime: 20
   IntParams:
   - name: State
     value: 3
@@ -122,9 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exeType: 2
-  DelayTime: 8
+  DelayTime: 12
   allStyle: 0
-  QuoteString: "\u307E\u305F\u6C17\u304C\u5411\u3044\u305F\u3089\n\u958B\u767A\u3092\u9032\u3081\u3066\u3044\u304F\n\u304B\u3082\u3057\u308C\u307E\u305B\u3093\u3002"
+  QuoteString: "\u307E\u305F\u6C17\u304C\u5411\u3044\u305F\u3089"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
   TextColor: {r: 0, g: 0, b: 0, a: 1}
   PlaceBone: 10
@@ -186,7 +217,7 @@ MonoBehaviour:
   exeType: 2
   DelayTime: 8
   allStyle: 0
-  QuoteString: "Menu\u306F\n\u3053\u306E\u3088\u3046\u306B\n\u5165\u308C\u66FF\u3048\u308B\n\u3053\u3068\u304C\u3067\u304D\u3001"
+  QuoteString: "Menu\u306F\n\u3053\u306E\u3088\u3046\u306B"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
   TextColor: {r: 0, g: 0, b: 0, a: 1}
   PlaceBone: 10
@@ -217,7 +248,38 @@ MonoBehaviour:
   exeType: 2
   DelayTime: 4
   allStyle: 0
-  QuoteString: "\u3053\u306E\u3088\u3046\u306B\u5929\u6C17\u4E88\u5831\u304C\n\u8868\u793A\u3055\u308C\u307E\u3059\u3002"
+  QuoteString: "\u3053\u306E\u3088\u3046\u306B\n\u5929\u6C17\u4E88\u5831\u304C"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114254380013463578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 16
+  allStyle: 0
+  QuoteString: "\u958B\u767A\u3092\u9032\u3081\u3066\u3044\u304F\n\u304B\u3082\u3057\u308C\u307E\u305B\u3093\u3002"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
   TextColor: {r: 0, g: 0, b: 0, a: 1}
   PlaceBone: 10
@@ -246,9 +308,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exeType: 2
-  DelayTime: 4
+  DelayTime: 8
   allStyle: 0
-  QuoteString: "\u306A\u3093\u3068\u306A\u304F\u5225\u306E\u3053\u3068\u304C\n\u3084\u308A\u305F\u304F\u306A\u3063\u305F\u306E\u3067"
+  QuoteString: "\u958B\u767A\u30DA\u30FC\u30B9\u304C\n\u843D\u3061\u307E\u3059\u3002"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
   TextColor: {r: 0, g: 0, b: 0, a: 1}
   PlaceBone: 10
@@ -277,9 +339,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exeType: 2
-  DelayTime: 12
+  DelayTime: 16
   allStyle: 0
   QuoteString: "\u81EA\u7531\u306B\n\u4F5C\u6210\u3057\u305F\u3082\u306E\u3092\n\u8AAD\u307F\u8FBC\u3081\u307E\u3059\u3002"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
+--- !u!114 &114331441055700314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 8
+  allStyle: 0
+  QuoteString: "\u8868\u793A\u3055\u308C\u307E\u3059\u3002"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
   TextColor: {r: 0, g: 0, b: 0, a: 1}
   PlaceBone: 10
@@ -327,6 +420,37 @@ MonoBehaviour:
   backImage: 0
   FontSize: 0
   font: {fileID: 0}
+--- !u!114 &114419688106371256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d115c0864f16654e8ea5456950d6ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exeType: 2
+  DelayTime: 12
+  allStyle: 0
+  QuoteString: "\u5165\u308C\u66FF\u3048\u308B\n\u3053\u3068\u304C\u3067\u304D\u3001"
+  PanelColor: {r: 1, g: 1, b: 1, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
+  PlaceBone: 10
+  PlaceOffset: {x: -100, y: 0}
+  PanelCollar: {x: 10, y: 10}
+  anchor: 4
+  pivot: 4
+  quoteStyle: 0
+  ListMax: 0
+  alphaStyle: 0
+  AlphaChangingTime: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  MovingTime: 0
+  backImage: 0
+  FontSize: 0
+  font: {fileID: 0}
 --- !u!114 &114442677942748644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,7 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95538971991206746, guid: baab715964d739041a510c08b0d4ada7, type: 2}
   exeType: 2
-  DelayTime: 16
+  DelayTime: 20
   IntParams:
   - name: State
     value: 2
@@ -391,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exeType: 2
-  DelayTime: 12
+  DelayTime: 16
   allStyle: 0
   QuoteString: "WeatherHacks\u3092\n\u4F7F\u7528\u3057\u3066\u3044\u307E\u3059\u3002"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
@@ -453,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exeType: 2
-  DelayTime: 8
+  DelayTime: 12
   allStyle: 0
   QuoteString: "\u4E88\u5831\u306E\u53D6\u5F97\u306B\u306F\nlivedoor\u306E"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
@@ -569,7 +693,7 @@ MonoBehaviour:
   exeType: 0
   DelayTime: 0
   allStyle: 0
-  QuoteString: "\u3055\u3066\u4ECA\u56DE\u3092\u4EE5\u3066\n\u52D5\u753B\u306F\u3044\u3063\u305F\u3093\n\u304A\u4F11\u307F\u3057\u307E\u3059\u3002"
+  QuoteString: "\u306A\u3093\u3068\u306A\u304F\n\u5225\u306E\u3053\u3068\u3082"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
   TextColor: {r: 0, g: 0, b: 0, a: 1}
   PlaceBone: 10
@@ -667,7 +791,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -691,7 +815,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.9698795
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -715,7 +839,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.9698795
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -735,6 +859,7 @@ AnimatorState:
   - {fileID: 114104393611399840}
   - {fileID: 114112639793255340}
   - {fileID: 114249296503647992}
+  - {fileID: 114331441055700314}
   - {fileID: 114581466654921072}
   - {fileID: 114569042699239998}
   m_Position: {x: 50, y: 50, z: 0}
@@ -767,6 +892,7 @@ AnimatorState:
   - {fileID: 114862986327132964}
   - {fileID: 114904934494565428}
   - {fileID: 114212642456005810}
+  - {fileID: 114419688106371256}
   - {fileID: 114255143450776676}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -827,8 +953,10 @@ AnimatorState:
   m_Transitions: []
   m_StateMachineBehaviours:
   - {fileID: 114830198006792974}
+  - {fileID: 114010784048167480}
   - {fileID: 114254968917874206}
   - {fileID: 114147655585867042}
+  - {fileID: 114254380013463578}
   - {fileID: 114090394139179150}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0

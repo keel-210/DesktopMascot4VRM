@@ -29,6 +29,9 @@ public class AssetBundleLoader : MonoBehaviour
 				LoadAnimatorController(assetbundle, name, currentModel);
 			}
 		}
+		yield return null;
+		yield return null;
+		yield return null;
 		assetbundle.Unload(false);
 	}
 	IEnumerator LoadPrefab(AssetBundle assetbundle, string name, GameObject currentModel)
@@ -38,12 +41,18 @@ public class AssetBundleLoader : MonoBehaviour
 		yield return new WaitWhile(()=> resultObject.isDone == false);
 
 		var obj = (GameObject)Instantiate(resultObject.asset);
-
+		Debug.Log(s);
 		LicenseCheck(currentModel, obj.GetComponent<Settings4VRM>());
-		if (s == "Menu")
+		if (s == "menu")
 		{
-			Destroy(GameObject.Find("Canvas").transform.Find("Menu"));
-			obj.transform.parent = GameObject.Find("Canvas").transform;
+			Destroy(GameObject.Find("Canvas").transform.Find("menu").gameObject);
+			obj.transform.SetParent(GameObject.Find("Canvas").GetComponent<RectTransform>());
+			obj.GetComponent<RectTransform>().position = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+			obj.name = "menu";
+		}
+		else
+		{
+			Destroy(obj);
 		}
 	}
 	void LoadAnimatorController(AssetBundle assetbundle, string name, GameObject currentModel)
@@ -56,6 +65,11 @@ public class AssetBundleLoader : MonoBehaviour
 			currentModel.GetComponent<Animator>().runtimeAnimatorController = resultObject;
 			FindObjectOfType<ClickBoneObserver>().anim = currentModel.GetComponent<Animator>();
 			FindObjectOfType<HumanCollider>().Adjust4Model();
+			if (currentModel.GetComponent<AnimatorWriter2State>())
+			{
+				Destroy(currentModel.GetComponent<AnimatorWriter2State>());
+			}
+			currentModel.AddComponent<AnimatorWriter2State>();
 		}
 	}
 	void LicenseCheck(GameObject vrmModel, Settings4VRM setting)

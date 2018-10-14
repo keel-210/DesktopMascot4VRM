@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224039705940265974}
   - component: {fileID: 114754496992264690}
+  - component: {fileID: 225964406968142738}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -600,6 +601,7 @@ MonoBehaviour:
   RotTime: 0.25
   ScaleTime: 0.25
   AlphaTime: 0.25
+  IsOpen: 0
 --- !u!114 &114765137144164200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -801,3 +803,14 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -10}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225964406968142738
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201487946030844}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

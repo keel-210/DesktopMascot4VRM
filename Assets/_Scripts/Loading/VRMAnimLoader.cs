@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Linq;
 using UniHumanoid;
 using UnityEngine;
 using VRM;
@@ -66,6 +67,11 @@ public class VRMAnimLoader : MonoBehaviour
 			meta = context.ReadMeta();
 			if (currentModel.GetComponent<Animator>())
 			{
+				var allquote = FindObjectsOfType<QuoteController>();
+				foreach (QuoteController q in allquote)
+				{
+					q.AllQuoteDestroy();
+				}
 				newModel.GetComponent<Animator>().runtimeAnimatorController = currentModel.GetComponent<Animator>().runtimeAnimatorController;
 				FindObjectOfType<ClickBoneObserver>().anim = newModel.GetComponent<Animator>();
 				FindObjectOfType<HumanCollider>().Adjust4Model();
