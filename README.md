@@ -1,6 +1,7 @@
 # DesktopMaskot4VRM
 
 VRMとUnityを基盤にしたデスクトップマスコット
+
 ユーザーが自由にVRMモデルの挙動、メニュー等を作成し使用することを目的とする
 
 PCとSteamVRに対応予定
