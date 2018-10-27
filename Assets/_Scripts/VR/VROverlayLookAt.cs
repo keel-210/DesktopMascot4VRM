@@ -10,7 +10,8 @@ public class VROverlayLookAt : MonoBehaviour
 	void Update()
 	{
 		Vector3 EyePos = InputTracking.GetLocalPosition(XRNode.CenterEye);
-		Quaternion rot = Quaternion.LookRotation(OVO.Position - EyePos);
-		OVO.Rotation = rot.eulerAngles;
+        Debug.Log(EyePos);
+		Quaternion rot = Quaternion.LookRotation(OVO.Position,Vector3.up);
+		OVO.Rotation = new Vector3(0,-rot.eulerAngles.y,0);
 	}
 }
