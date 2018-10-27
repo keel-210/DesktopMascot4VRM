@@ -5657,6 +5657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1355610607}
   - component: {fileID: 1355610608}
+  - component: {fileID: 1355610609}
   m_Layer: 5
   m_Name: Cam4VR
   m_TagString: Untagged
@@ -5696,13 +5697,13 @@ MonoBehaviour:
   error: 1
   eventLog: 0
   renderTexture: {fileID: 8400000, guid: 65ffababaca9ab04da6655f00c7eac10, type: 2}
-  Position: {x: 0, y: -0.5, z: 3}
-  Rotation: {x: 0, y: 0, z: 0}
+  Position: {x: 0.3, y: 0, z: 0.5}
+  Rotation: {x: 0, y: 45, z: 0}
   Scale: {x: 1, y: 1, z: 1}
   MirrorX: 0
   MirrorY: 0
-  width: 5
-  alpha: 0.2
+  width: 0.2
+  alpha: 0.75
   show: 1
   OverlayFriendlyName: SampleOverlay
   OverlayKeyName: SampleOverlay
@@ -5726,6 +5727,18 @@ MonoBehaviour:
   RightHandU: -1
   RightHandV: -1
   RightHandDistance: -1
+--- !u!114 &1355610609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355610606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d894b540b9bd0d4d8b84b2be2e6d322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OVO: {fileID: 1355610608}
 --- !u!1 &1356807088
 GameObject:
   m_ObjectHideFlags: 0

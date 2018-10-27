@@ -19,13 +19,9 @@ public class AlphaByCanvasGroup : MonoBehaviour
 		ChangingTime = changing;
 		DelayTime = Delay;
 		MinusColor = minus;
-		if (MinusColor)
+		ColorDirection = (MinusColor ? -1 : 1)/ changing;
+		if (!MinusColor)
 		{
-			ColorDirection = -1 / changing;
-		}
-		else
-		{
-			ColorDirection = 1 / changing;
 			group.alpha = 0;
 		}
 		Timer = 0;
