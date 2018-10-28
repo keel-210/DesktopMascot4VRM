@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2612685967
+CRC: 2045184565
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -15,4 +15,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_3:
       Name: assets/anothermenu.unity3d
+      Dependencies: {}
+    Info_4:
+      Name: assets/basemenu.unity3d
       Dependencies: {}

@@ -35,11 +35,11 @@ MonoBehaviour:
   exeType: 0
   DelayTime: 0
   allStyle: 3
-  QuoteString: "VRM \n\u4F3A\u304B\nVer0.3"
+  QuoteString: "VRM \n\u4F3A\u304B     VR\nVer0.4 Support"
   PanelColor: {r: 1, g: 1, b: 1, a: 1}
-  TextColor: {r: 0, g: 1, b: 0.0053334236, a: 1}
+  TextColor: {r: 1, g: 0.8988099, b: 0, a: 1}
   PlaceBone: 10
-  PlaceOffset: {x: -500, y: -100}
+  PlaceOffset: {x: -200, y: -100}
   PanelCollar: {x: 10, y: 10}
   anchor: 4
   pivot: 4
@@ -50,7 +50,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   MovingTime: 0
   backImage: 0
-  FontSize: 100
+  FontSize: 80
   font: {fileID: 12800000, guid: c39d24fc34ce04e4ea985fe6458e2b25, type: 3}
 --- !u!1102 &1102251781703534284
 AnimatorState:
