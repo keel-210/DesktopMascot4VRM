@@ -20,6 +20,7 @@ public class VRMAnimLoader : MonoBehaviour
 	private VRMMetaObject meta;
 	[SerializeField] public GameObject currentModel;
 	AssetBundleLoader loader;
+	public Action<Animator> NewModelLoadedAnim;
 
 	void Start()
 	{
@@ -31,6 +32,10 @@ public class VRMAnimLoader : MonoBehaviour
 			windowController.OnFilesDropped += Window_OnFilesDropped;
 		}
 		loader = FindObjectOfType<AssetBundleLoader>();
+		NewModelLoadedAnim += (anim) =>
+		{
+			anim.runtimeAnimatorController = currentModel.GetComponent<Animator>().runtimeAnimatorController;
+		};
 	}
 
 	private void Window_OnFilesDropped(string[] files)
@@ -43,7 +48,7 @@ public class VRMAnimLoader : MonoBehaviour
 				LoadModel(path);
 				break;
 			}
-			if (StringUtil.TailMatch(path, ".unity3d")|| StringUtil.TailMatch(path, "manifest"))
+			if (StringUtil.TailMatch(path, ".unity3d") || StringUtil.TailMatch(path, "manifest"))
 			{
 				StartCoroutine(loader.LoadAssetBundle(path, currentModel));
 				break;
@@ -72,9 +77,7 @@ public class VRMAnimLoader : MonoBehaviour
 				{
 					q.AllQuoteDestroy();
 				}
-				newModel.GetComponent<Animator>().runtimeAnimatorController = currentModel.GetComponent<Animator>().runtimeAnimatorController;
-				FindObjectOfType<ClickBoneObserver>().anim = newModel.GetComponent<Animator>();
-				FindObjectOfType<HumanCollider>().Adjust4Model();
+				NewModelLoadedAnim(newModel.GetComponent<Animator>());
 			}
 			Destroy(currentModel);
 			currentModel = newModel;

@@ -49,6 +49,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Valve.VR; //Steam VR
+using UnityEngine.XR;
 
 public class EasyOpenVROverlayForUnity : MonoBehaviour
 {
@@ -136,7 +137,6 @@ public class EasyOpenVROverlayForUnity : MonoBehaviour
     public string DeviceSerialNumber = null;
     //選択デバイスのモデル名
     public string DeviceRenderModelName = null;
-
 
     [Header("GUI Tap")]
     //レイキャスト対象識別用ルートCanvasオブジェクト
@@ -295,6 +295,11 @@ public class EasyOpenVROverlayForUnity : MonoBehaviour
         var overlayError = EVROverlayError.None;
         error = false;
 
+        if (!OpenVR.IsHmdPresent())
+        {
+            this.enabled = false;
+        }
+
         //フレームレートを90fpsにする。(しないと無限に早くなることがある)
         Application.targetFrameRate = 90;
         Debug.Log(Tag + "Set Frame Rate 90");
@@ -397,7 +402,8 @@ public class EasyOpenVROverlayForUnity : MonoBehaviour
             }
         }
 
-        if (putLogDevicesInfo) {
+        if (putLogDevicesInfo)
+        {
             showDevices();
             putLogDevicesInfo = false;
         }
@@ -430,9 +436,18 @@ public class EasyOpenVROverlayForUnity : MonoBehaviour
         Vector3 Mirroring = new Vector3(MirrorX ? -1 : 1, MirrorY ? -1 : 1, 1);
 
         //4x4行列を3x4行列に変換する。
-        p.m0 = Mirroring.x * m.m00; p.m1 = Mirroring.y * m.m01; p.m2 = Mirroring.z * m.m02; p.m3 = m.m03;
-        p.m4 = Mirroring.x * m.m10; p.m5 = Mirroring.y * m.m11; p.m6 = Mirroring.z * m.m12; p.m7 = m.m13;
-        p.m8 = Mirroring.x * m.m20; p.m9 = Mirroring.y * m.m21; p.m10 = Mirroring.z * m.m22; p.m11 = m.m23;
+        p.m0 = Mirroring.x * m.m00;
+        p.m1 = Mirroring.y * m.m01;
+        p.m2 = Mirroring.z * m.m02;
+        p.m3 = m.m03;
+        p.m4 = Mirroring.x * m.m10;
+        p.m5 = Mirroring.y * m.m11;
+        p.m6 = Mirroring.z * m.m12;
+        p.m7 = m.m13;
+        p.m8 = Mirroring.x * m.m20;
+        p.m9 = Mirroring.y * m.m21;
+        p.m10 = Mirroring.z * m.m22;
+        p.m11 = m.m23;
 
         //回転行列を元に相対位置で表示
         if (DeviceTracking)
@@ -578,7 +593,6 @@ public class EasyOpenVROverlayForUnity : MonoBehaviour
         return false;
     }
 
-
     //----------おまけ(deviceの詳細情報)-------------
 
     //全てのdeviceの情報をログに出力する
@@ -703,7 +717,6 @@ public class EasyOpenVROverlayForUnity : MonoBehaviour
         }
         return s.ToString();
     }
-
 
     //----------おまけ(コントローラーでOverlayを叩いてuGUIをクリックできるやつ)-------------
 
@@ -928,6 +941,5 @@ public class EasyOpenVROverlayForUnity : MonoBehaviour
             }
         }
     }
-
 
 }

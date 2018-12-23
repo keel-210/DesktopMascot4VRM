@@ -8,7 +8,9 @@ public class VROverlayLookAt : MonoBehaviour
 	[SerializeField] EasyOpenVROverlayForUnity OVO;
 	void Update()
 	{
+		Vector3 HeadPos = InputTracking.GetLocalPosition(XRNode.Head);
+		Vector3 CamPos = Camera.main.transform.position;
 		Quaternion rot = Quaternion.LookRotation(OVO.Position, Vector3.up);
-		OVO.Rotation = new Vector3(0, -rot.eulerAngles.y, 0);
+		OVO.Rotation = -rot.eulerAngles;
 	}
 }

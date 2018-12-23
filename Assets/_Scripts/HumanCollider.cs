@@ -5,33 +5,37 @@ using UnityEngine;
 public class HumanCollider : MonoBehaviour
 {
 	//VRMの中にcollider入れたくないのとあくまでhumanbodybonesを介しておきたいためこのような設計に
-	public List<Transform> colliderList = new List<Transform> ();
+	public List<Transform> colliderList = new List<Transform>();
 	[SerializeField] Animator anim;
-	void Start ()
+	void Start()
 	{
 		foreach (Transform t in transform)
 		{
-			colliderList.Add (t);
+			colliderList.Add(t);
 		}
-		Adjust4Model ();
+		Adjust4Model();
+		FindObjectOfType<VRMAnimLoader>().NewModelLoadedAnim += (animator) =>
+		{
+			anim = animator;
+		};
 	}
 
-	void Update ()
+	void Update()
 	{
 		if (anim)
 		{
-			MoveCollider ();
+			MoveCollider();
 		}
 	}
-	public void Adjust4Model ()
+	public void Adjust4Model()
 	{
-		anim = FindObjectOfType<ClickBoneObserver> ().anim;
+		anim = FindObjectOfType<ClickBoneObserver>().anim;
 	}
-	void MoveCollider ()
+	void MoveCollider()
 	{
 		for (int i = 0; i < targetBones.Length; i++)
 		{
-			Transform boneObj = anim.GetBoneTransform (targetBones[i]);
+			Transform boneObj = anim.GetBoneTransform(targetBones[i]);
 			if (boneObj)
 			{
 				colliderList[i].position = boneObj.position;
@@ -39,9 +43,9 @@ public class HumanCollider : MonoBehaviour
 			}
 		}
 	}
-	public HumanBodyBones HitBone (Transform tra)
+	public HumanBodyBones HitBone(Transform tra)
 	{
-		int boneNum = colliderList.IndexOf (tra);
+		int boneNum = colliderList.IndexOf(tra);
 		if (boneNum == -1)
 		{
 			return HumanBodyBones.LastBone;
