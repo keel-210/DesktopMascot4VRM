@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ClickBoneObserver : MonoBehaviour
 {
-	public Animator anim;
+	Animator anim;
 	void Start()
 	{
 		FindObjectOfType<VRMAnimLoader>().NewModelLoadedAnim += (animator) =>

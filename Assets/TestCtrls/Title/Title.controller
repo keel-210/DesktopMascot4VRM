@@ -7,7 +7,19 @@ AnimatorController:
   m_PrefabInternal: {fileID: 0}
   m_Name: Title
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: ClickEvent
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: AlarmEvent
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -33,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 0}
+  time:
+    text: 0001-01-01 00:00:00
 --- !u!114 &114041274035858004
 MonoBehaviour:
   m_ObjectHideFlags: 1

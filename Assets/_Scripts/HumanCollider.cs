@@ -13,7 +13,6 @@ public class HumanCollider : MonoBehaviour
 		{
 			colliderList.Add(t);
 		}
-		Adjust4Model();
 		FindObjectOfType<VRMAnimLoader>().NewModelLoadedAnim += (animator) =>
 		{
 			anim = animator;
@@ -26,10 +25,6 @@ public class HumanCollider : MonoBehaviour
 		{
 			MoveCollider();
 		}
-	}
-	public void Adjust4Model()
-	{
-		anim = FindObjectOfType<ClickBoneObserver>().anim;
 	}
 	void MoveCollider()
 	{

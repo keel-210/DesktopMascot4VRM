@@ -15,7 +15,7 @@ public class AssetBundleLoader : MonoBehaviour
 
 		var resultAssetbundle = AssetBundle.LoadFromFileAsync(path);
 
-		yield return new WaitWhile(()=> resultAssetbundle.isDone == false);
+		yield return new WaitWhile(() => resultAssetbundle.isDone == false);
 		var assetbundle = resultAssetbundle.assetBundle;
 
 		foreach (string name in assetbundle.GetAllAssetNames())
@@ -38,7 +38,7 @@ public class AssetBundleLoader : MonoBehaviour
 	{
 		string s = StringUtil.FileName(name);
 		var resultObject = assetbundle.LoadAssetAsync<GameObject>(s);
-		yield return new WaitWhile(()=> resultObject.isDone == false);
+		yield return new WaitWhile(() => resultObject.isDone == false);
 
 		var obj = (GameObject)Instantiate(resultObject.asset);
 		Debug.Log(s);
@@ -63,8 +63,6 @@ public class AssetBundleLoader : MonoBehaviour
 		if (currentModel.GetComponent<Animator>())
 		{
 			currentModel.GetComponent<Animator>().runtimeAnimatorController = resultObject;
-			FindObjectOfType<ClickBoneObserver>().anim = currentModel.GetComponent<Animator>();
-			FindObjectOfType<HumanCollider>().Adjust4Model();
 			if (currentModel.GetComponent<AnimatorWriter2State>())
 			{
 				Destroy(currentModel.GetComponent<AnimatorWriter2State>());
