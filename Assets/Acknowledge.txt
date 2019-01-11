@@ -1,0 +1,6 @@
+(:3[kanのメモ帳] パーリンノイズを使ってアニメーションにランダムなゆらぎを与える【Unity】【パーリンノイズ】
+PerlinNoiseAnimeRandomizer
+http://kan-kikuchi.hatenablog.com/entry/PerlinNoise_Anime
+
+@kirurobo様よりUniWinApi
+https://github.com/kirurobo/UniWinApi

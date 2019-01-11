@@ -11,6 +11,10 @@ public class MenuController : MonoBehaviour
 	LayerMask mask;
 	public bool IsOpen;
 	List<GameObject> children = new List<GameObject>();
+	void Awake()
+	{
+		gameObject.name = "menu";
+	}
 	void Start()
 	{
 		foreach (Transform t in transform)
@@ -33,7 +37,7 @@ public class MenuController : MonoBehaviour
 				MenuOpen();
 			}
 		}
-		if (Input.GetMouseButtonDown(0)&& IsOpen)
+		if (Input.GetMouseButtonDown(0) && IsOpen)
 		{
 			PointerEventData pointer = new PointerEventData(EventSystem.current);
 			pointer.position = Input.mousePosition;
@@ -84,7 +88,7 @@ public class MenuController : MonoBehaviour
 		}
 		float[] times = { RotTime, ScaleTime, AlphaTime };
 		float maxTime = times.Max();
-		StartCoroutine(this.DelayMethod(maxTime, ()=>
+		StartCoroutine(this.DelayMethod(maxTime, () =>
 		{
 			children.ForEach(item => item.SetActive(false));
 			IsOpen = false;

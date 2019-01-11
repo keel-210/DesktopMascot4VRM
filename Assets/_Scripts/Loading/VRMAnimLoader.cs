@@ -21,6 +21,7 @@ public class VRMAnimLoader : MonoBehaviour
 	[SerializeField] public GameObject currentModel;
 	AssetBundleLoader loader;
 	public Action<Animator> NewModelLoadedAnim;
+	public Animator animator { get; private set; }
 
 	void Start()
 	{
@@ -36,6 +37,7 @@ public class VRMAnimLoader : MonoBehaviour
 		{
 			anim.runtimeAnimatorController = currentModel.GetComponent<Animator>().runtimeAnimatorController;
 		};
+		animator = currentModel.GetComponent<Animator>();
 	}
 
 	private void Window_OnFilesDropped(string[] files)
@@ -78,6 +80,7 @@ public class VRMAnimLoader : MonoBehaviour
 					q.AllQuoteDestroy();
 				}
 				NewModelLoadedAnim(newModel.GetComponent<Animator>());
+				animator = newModel.GetComponent<Animator>();
 			}
 			Destroy(currentModel);
 			currentModel = newModel;

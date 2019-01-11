@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimatorConnector : StateMachineBehaviour
 {
 	public Animator anim = new Animator();
+	public RuntimeAnimatorController AnimatorController;
 	public ExecuteType exeType;
 	public float DelayTime;
 	public List<IntParam> IntParams = new List<IntParam>();

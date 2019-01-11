@@ -8,27 +8,33 @@ public class TimerCaller : MonoBehaviour
 	Animator animator;
 	void Start()
 	{
-		FindObjectOfType<VRMAnimLoader>().NewModelLoadedAnim += (anim) =>
-		{
-			animator = anim;
-		};
+		animator = FindObjectOfType<VRMAnimLoader>().animator;
 	}
 	public void SetTimer(AudioClip clip, float time, int state)
 	{
-		StartCoroutine(this.DelayMethod(time, () =>
-		{
-			StartCoroutine(CallTimer(clip, state));
-		}));
+		StartCoroutine(CallTimer(clip, time, state));
 	}
-	IEnumerator CallTimer(AudioClip clip, int state)
+	IEnumerator CallTimer(AudioClip clip, float time, int state)
 	{
-		GameObject ForSound = new GameObject();
-		ForSound.AddComponent<AudioSource>();
-		AudioSource source = ForSound.GetComponent<AudioSource>();
+		GameObject Timer = Instantiate((GameObject)Resources.Load("_Prefabs/uGUI/Timer"));
+		TimerController ctrl = Timer.GetComponent<TimerController>();
+		Timer.AddComponent<AudioSource>();
+		AudioSource source = Timer.GetComponent<AudioSource>();
 		source.clip = clip;
-		animator.SetInteger("AlarmState", state);
+		if (!animator)
+		{
+			animator = FindObjectOfType<VRMAnimLoader>().animator;
+		}
+		animator.SetInteger("AlarmEvent", state);
+		float startTime = Time.time;
+		while (true)
+		{
+			ctrl.time = time - Time.time + startTime;
+			if (ctrl.time <= 0 || !ctrl) { break; }
+			yield return null;
+		}
 		source.Play();
-		yield return new WaitForSeconds(source.clip.length);
-		Destroy(ForSound);
+		yield return new WaitForSeconds(clip.length);
+		Destroy(Timer);
 	}
 }

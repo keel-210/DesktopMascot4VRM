@@ -6,24 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Test/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: Assets/Scenes/SampleScene 1.unity
+    path: Assets/Scenes/Test/SampleScene 1.unity
     guid: 5ecbdc56cee979944bbfe74a03d32c7e
   - enabled: 0
     path: Assets/UniWinApi-master/Assets/UniWinApi/Examples/SimpleSample.unity
     guid: b650a883366376446b7db29169c59420
   - enabled: 0
-    path: Assets/Scenes/DM4VRM.unity
+    path: Assets/Scenes/Test/DM4VRM.unity
     guid: f34df4d031ac68d45ba50dd9cf65945e
   - enabled: 0
-    path: Assets/Scenes/ConnectorTest.unity
+    path: Assets/Scenes/Test/ConnectorTest.unity
     guid: 408b06cff4da9bd44bc2a122ad745d34
   - enabled: 0
-    path: Assets/Scenes/WeatherTest.unity
+    path: Assets/Scenes/Test/WeatherTest.unity
     guid: bf2aa056f0571b14599be28626704840
-  - enabled: 1
-    path: Assets/Scenes/MenuScene.unity
+  - enabled: 0
+    path: Assets/Scenes/Test/MenuScene.unity
     guid: 55ace685f32585f46918673b68688f77
+  - enabled: 1
+    path: Assets/Scenes/Test/TimeTest.unity
+    guid: b4fbe156267b6124e87ea90e6bf350e4
   m_configObjects: {}

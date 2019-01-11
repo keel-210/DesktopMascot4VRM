@@ -7,11 +7,11 @@ using UnityEditorInternal;
 using UnityEngine;
 
 [CanEditMultipleObjects]
-[CustomEditor (typeof (AnimatorConnector))]
+[CustomEditor(typeof(AnimatorConnector))]
 public class AnimatorConnecterEditor : Editor
 {
 	ReorderableList IntList, FloatList, BoolList, TriggerList;
-	void OnEnable ()
+	void OnEnable()
 	{
 		AnimatorConnector connector = target as AnimatorConnector;
 
@@ -20,127 +20,127 @@ public class AnimatorConnecterEditor : Editor
 			AnimCtrl = connector.anim.runtimeAnimatorController as UnityEditor.Animations.AnimatorController;
 		if (AnimCtrl)
 		{
-			List<string> IntNameList = new List<string> (), FloatNameList = new List<string> (), BoolNameList = new List<string> (), TriggerNameList = new List<string> ();
+			List<string> IntNameList = new List<string>(), FloatNameList = new List<string>(), BoolNameList = new List<string>(), TriggerNameList = new List<string>();
 			foreach (UnityEngine.AnimatorControllerParameter p in AnimCtrl.parameters)
 			{
 				switch (p.type)
 				{
 
 					case UnityEngine.AnimatorControllerParameterType.Int:
-						IntNameList.Add (p.name);
+						IntNameList.Add(p.name);
 						break;
 					case UnityEngine.AnimatorControllerParameterType.Float:
-						FloatNameList.Add (p.name);
+						FloatNameList.Add(p.name);
 						break;
 					case UnityEngine.AnimatorControllerParameterType.Bool:
-						BoolNameList.Add (p.name);
+						BoolNameList.Add(p.name);
 						break;
 					case UnityEngine.AnimatorControllerParameterType.Trigger:
-						TriggerNameList.Add (p.name);
+						TriggerNameList.Add(p.name);
 						break;
 					default:
 						break;
 				}
 			}
-			string[] IntNames = IntNameList.ToArray ();
-			string[] FloatNames = FloatNameList.ToArray ();
-			string[] BoolNames = BoolNameList.ToArray ();
-			string[] TriggerNames = TriggerNameList.ToArray ();
+			string[] IntNames = IntNameList.ToArray();
+			string[] FloatNames = FloatNameList.ToArray();
+			string[] BoolNames = BoolNameList.ToArray();
+			string[] TriggerNames = TriggerNameList.ToArray();
 
 			//Integer Parameters Reorderable List
 			if (IntNames.Length > 0)
 			{
-				var IProp = serializedObject.FindProperty ("IntParams");
-				IntList = new ReorderableList (serializedObject, IProp);
-				IntList.drawHeaderCallback = (rect)=> EditorGUI.LabelField (rect, "Integer Parameters");
-				IntList.drawElementCallback = (rect, index, isActive, isFocused)=>
+				var IProp = serializedObject.FindProperty("IntParams");
+				IntList = new ReorderableList(serializedObject, IProp);
+				IntList.drawHeaderCallback = (rect) => EditorGUI.LabelField(rect, "Integer Parameters");
+				IntList.drawElementCallback = (rect, index, isActive, isFocused) =>
 				{
 					foreach (IntParam i in connector.IntParams)
 					{
-						var nameRect = new Rect (rect) { width = 96, };
-						var valueRect = new Rect (rect) { width = rect.width - 128, height = rect.height - 4, x = rect.x + 128 };
+						var nameRect = new Rect(rect) { width = 96, };
+						var valueRect = new Rect(rect) { width = rect.width - 128, height = rect.height - 4, x = rect.x + 128 };
 						if (i.name != "")
 						{
-							var selectedIndex = IntNameList.FindIndex (x => x.Equals (i.name));
-							selectedIndex = EditorGUI.Popup (nameRect, selectedIndex, IntNames);
+							var selectedIndex = IntNameList.FindIndex(x => x.Equals(i.name));
+							selectedIndex = EditorGUI.Popup(nameRect, selectedIndex, IntNames);
 							i.name = IntNames[selectedIndex];
 						}
 						else
 						{
 							i.name = IntNames[0];
 						}
-						i.value = EditorGUI.IntField (valueRect, i.value);
+						i.value = EditorGUI.IntField(valueRect, i.value);
 					}
 				};
 			}
 			//Float Parameters Reorderable List
 			if (FloatNames.Length > 0)
 			{
-				var FProp = serializedObject.FindProperty ("FloatParams");
-				FloatList = new ReorderableList (serializedObject, FProp);
-				FloatList.drawHeaderCallback = (rect)=> EditorGUI.LabelField (rect, "Float Parameters");
-				FloatList.drawElementCallback = (rect, index, isActive, isFocused)=>
+				var FProp = serializedObject.FindProperty("FloatParams");
+				FloatList = new ReorderableList(serializedObject, FProp);
+				FloatList.drawHeaderCallback = (rect) => EditorGUI.LabelField(rect, "Float Parameters");
+				FloatList.drawElementCallback = (rect, index, isActive, isFocused) =>
 				{
 					foreach (FloatParam i in connector.FloatParams)
 					{
-						var nameRect = new Rect (rect) { width = 96, };
-						var valueRect = new Rect (rect) { width = rect.width - 128, height = rect.height - 4, x = rect.x + 128 };
+						var nameRect = new Rect(rect) { width = 96, };
+						var valueRect = new Rect(rect) { width = rect.width - 128, height = rect.height - 4, x = rect.x + 128 };
 						if (i.name != "")
 						{
-							var selectedIndex = FloatNameList.FindIndex (x => x.Equals (i.name));
-							selectedIndex = EditorGUI.Popup (nameRect, selectedIndex, FloatNames);
+							var selectedIndex = FloatNameList.FindIndex(x => x.Equals(i.name));
+							selectedIndex = EditorGUI.Popup(nameRect, selectedIndex, FloatNames);
 							i.name = FloatNames[selectedIndex];
 						}
 						else
 						{
 							i.name = FloatNames[0];
 						}
-						i.value = EditorGUI.FloatField (valueRect, i.value);
+						i.value = EditorGUI.FloatField(valueRect, i.value);
 					}
 				};
 			}
 			//Boolean Parameters Reorderable List
 			if (BoolNames.Length > 0)
 			{
-				var BProp = serializedObject.FindProperty ("BoolParams");
-				BoolList = new ReorderableList (serializedObject, BProp);
-				BoolList.drawHeaderCallback = (rect)=> EditorGUI.LabelField (rect, "Bool Parameters");
-				BoolList.drawElementCallback = (rect, index, isActive, isFocused)=>
+				var BProp = serializedObject.FindProperty("BoolParams");
+				BoolList = new ReorderableList(serializedObject, BProp);
+				BoolList.drawHeaderCallback = (rect) => EditorGUI.LabelField(rect, "Bool Parameters");
+				BoolList.drawElementCallback = (rect, index, isActive, isFocused) =>
 				{
 					foreach (BoolParam i in connector.BoolParams)
 					{
-						var nameRect = new Rect (rect) { width = 96, };
-						var valueRect = new Rect (rect) { width = rect.width - 128, height = rect.height - 4, x = rect.x + 128 };
+						var nameRect = new Rect(rect) { width = 96, };
+						var valueRect = new Rect(rect) { width = rect.width - 128, height = rect.height - 4, x = rect.x + 128 };
 						if (i.name != "")
 						{
-							var selectedIndex = BoolNameList.FindIndex (x => x.Equals (i.name));
-							selectedIndex = EditorGUI.Popup (nameRect, selectedIndex, BoolNames);
+							var selectedIndex = BoolNameList.FindIndex(x => x.Equals(i.name));
+							selectedIndex = EditorGUI.Popup(nameRect, selectedIndex, BoolNames);
 							i.name = BoolNames[selectedIndex];
 						}
 						else
 						{
 							i.name = BoolNames[0];
 						}
-						i.value = EditorGUI.Toggle (valueRect, i.value);
+						i.value = EditorGUI.Toggle(valueRect, i.value);
 					}
 				};
 			}
 			//Trigger Parameters Reorderable List
 			if (TriggerNames.Length > 0)
 			{
-				var TProp = serializedObject.FindProperty ("TriggerParams");
-				TriggerList = new ReorderableList (serializedObject, TProp);
-				TriggerList.drawHeaderCallback = (rect)=> EditorGUI.LabelField (rect, "Trigger Parameters");
-				TriggerList.drawElementCallback = (rect, index, isActive, isFocused)=>
+				var TProp = serializedObject.FindProperty("TriggerParams");
+				TriggerList = new ReorderableList(serializedObject, TProp);
+				TriggerList.drawHeaderCallback = (rect) => EditorGUI.LabelField(rect, "Trigger Parameters");
+				TriggerList.drawElementCallback = (rect, index, isActive, isFocused) =>
 				{
 					foreach (TriggerParam i in connector.TriggerParams)
 					{
-						var nameRect = new Rect (rect) { width = 96, };
-						var valueRect = new Rect (rect) { width = rect.width - 128, x = rect.x + 128 };
+						var nameRect = new Rect(rect) { width = 96, };
+						var valueRect = new Rect(rect) { width = rect.width - 128, x = rect.x + 128 };
 						if (i.name != "")
 						{
-							var selectedIndex = TriggerNameList.FindIndex (x => x.Equals (i.name));
-							selectedIndex = EditorGUI.Popup (nameRect, selectedIndex, TriggerNames);
+							var selectedIndex = TriggerNameList.FindIndex(x => x.Equals(i.name));
+							selectedIndex = EditorGUI.Popup(nameRect, selectedIndex, TriggerNames);
 							i.name = TriggerNames[selectedIndex];
 						}
 						else
@@ -152,26 +152,28 @@ public class AnimatorConnecterEditor : Editor
 			}
 		}
 	}
-	public override void OnInspectorGUI ()
+	public override void OnInspectorGUI()
 	{
-		serializedObject.Update ();
+		serializedObject.Update();
 
-		var exeType = serializedObject.FindProperty ("exeType");
-		EditorGUILayout.PropertyField (exeType);
-		var DelayTime = serializedObject.FindProperty ("DelayTime");
-		EditorGUILayout.PropertyField (DelayTime);
-		var anim = serializedObject.FindProperty ("anim");
-		EditorGUILayout.PropertyField (anim);
+		var exeType = serializedObject.FindProperty("exeType");
+		EditorGUILayout.PropertyField(exeType);
+		var DelayTime = serializedObject.FindProperty("DelayTime");
+		EditorGUILayout.PropertyField(DelayTime);
+		var anim = serializedObject.FindProperty("anim");
+		EditorGUILayout.PropertyField(anim);
+		var AnimatorController = serializedObject.FindProperty("AnimatorController");
+		EditorGUILayout.PropertyField(AnimatorController);
 
 		if (IntList != null)
-			IntList.DoLayoutList ();
+			IntList.DoLayoutList();
 		if (FloatList != null)
-			FloatList.DoLayoutList ();
+			FloatList.DoLayoutList();
 		if (BoolList != null)
-			BoolList.DoLayoutList ();
+			BoolList.DoLayoutList();
 		if (TriggerList != null)
-			TriggerList.DoLayoutList ();
+			TriggerList.DoLayoutList();
 
-		serializedObject.ApplyModifiedProperties ();
+		serializedObject.ApplyModifiedProperties();
 	}
 }
