@@ -1,0 +1,69 @@
+ManifestFileVersion: 0
+CRC: 1682164484
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ab62b816d8b5103c24a48b9b63690a64
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: abcb400edcd2d89efe0bf4ba2d4ff2c8
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 225513dc0452f2f4596f683849f98c81, type: 3}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Soul/Animations/unitychan_JUMP00B.fbx
+- Assets/Soul/Animations/unitychan_RUN00_L.fbx
+- Assets/Soul/Animations/unitychan_WAIT00.fbx
+- Assets/Soul/Animations/unitychan_HANDUP00_R.fbx
+- Assets/Soul/Animations/unitychan_WALK00_B.fbx
+- Assets/Soul/Animations/QuoteTest.anim
+- Assets/Soul/Animations/unitychan_DAMAGED01.fbx
+- Assets/Soul/Animations/unitychan_WAIT04.fbx
+- Assets/Soul/Animations/unitychan_RUN00_F.fbx
+- Assets/Soul/Animations/unitychan_REFLESH00.fbx
+- Assets/Soul/Animations/unitychan_WAIT01.fbx
+- Assets/Soul/Animations/unitychan_WALK00_R.fbx
+- Assets/Soul/Animations/unitychan_WIN00.fbx
+- Assets/Soul/Animations/unitychan_WAIT03.fbx
+- Assets/Soul/Animations/unitychan_JUMP00.fbx
+- Assets/Soul/Animations/unitychan_LOSE00.fbx
+- Assets/Soul/Animations/unitychan_ARpose2.fbx
+- Assets/Soul/Soul.prefab
+- Assets/Soul/Animations/unitychan_UMATOBI00.fbx
+- Assets/Soul/Animations/unitychan_WALK00_F.fbx
+- Assets/Soul/Animations/unitychan_JUMP01.fbx
+- Assets/Soul/Animations/unitychan_DAMAGED00.fbx
+- Assets/Soul/Animations/unitychan_WALK00_L.fbx
+- Assets/Soul/Animations/unitychan_ARpose1.fbx
+- Assets/Soul/Animations/unitychan_RUN00_R.fbx
+- Assets/Soul/Animations/unitychan_SLIDE00.fbx
+- Assets/Soul/Animations/unitychan_WAIT02.fbx
+- Assets/Soul/Soul.controller
+- Assets/Soul/Animations/unitychan_JUMP01B.fbx
+Dependencies:
+- C:/Users/KEEL/Documents/DesktopMascot4VRM/Assets/StreamingAssets/asset/sexuality.unity3d

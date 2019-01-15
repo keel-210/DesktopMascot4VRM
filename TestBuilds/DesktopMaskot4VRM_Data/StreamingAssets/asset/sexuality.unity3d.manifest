@@ -1,0 +1,68 @@
+ManifestFileVersion: 0
+CRC: 2456680704
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cd77358546a703375a8859ff27521337
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 44bbc01f499c728d47d73e3f52f99277
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Sexuality/Sexuality.prefab
+- Assets/Sexuality/Animations/unitychan_ARpose1.fbx
+- Assets/Sexuality/Animations/unitychan_RUN00_L.fbx
+- Assets/Sexuality/Animations/unitychan_WAIT02.fbx
+- Assets/Sexuality/Animations/unitychan_REFLESH00.fbx
+- Assets/Sexuality/Animations/unitychan_JUMP01B.fbx
+- Assets/Sexuality/Animations/unitychan_WALK00_R.fbx
+- Assets/Sexuality/Animations/unitychan_LOSE00.fbx
+- Assets/Sexuality/Animations/unitychan_WAIT03.fbx
+- Assets/Sexuality/Animations/unitychan_WAIT04.fbx
+- Assets/Sexuality/Animations/unitychan_DAMAGED01.fbx
+- Assets/Sexuality/Animations/unitychan_DAMAGED00.fbx
+- Assets/Sexuality/Animations/unitychan_HANDUP00_R.fbx
+- Assets/Sexuality/Animations/unitychan_WALK00_B.fbx
+- Assets/Sexuality/Animations/unitychan_WAIT00.fbx
+- Assets/Sexuality/Animations/unitychan_ARpose2.fbx
+- Assets/Sexuality/Animations/unitychan_WALK00_L.fbx
+- Assets/Sexuality/Animations/unitychan_SLIDE00.fbx
+- Assets/Sexuality/Animations/unitychan_JUMP00B.fbx
+- Assets/Sexuality/Animations/unitychan_JUMP00.fbx
+- Assets/Sexuality/Animations/unitychan_RUN00_F.fbx
+- Assets/Sexuality/Animations/unitychan_WIN00.fbx
+- Assets/Sexuality/Animations/unitychan_WAIT01.fbx
+- Assets/Sexuality/Sexuality.controller
+- Assets/Sexuality/Animations/unitychan_UMATOBI00.fbx
+- Assets/Sexuality/Animations/unitychan_WALK00_F.fbx
+- Assets/Sexuality/Animations/unitychan_RUN00_R.fbx
+- Assets/Sexuality/Animations/unitychan_JUMP01.fbx
+Dependencies:
+- C:/Users/KEEL/Documents/DesktopMascot4VRM/Assets/StreamingAssets/assets/soul.unity3d

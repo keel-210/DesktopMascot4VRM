@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 2045184565
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: assets/soul.unity3d
+      Dependencies:
+        Dependency_0: asset/sexuality.unity3d
+    Info_1:
+      Name: asset/sexuality.unity3d
+      Dependencies:
+        Dependency_0: assets/soul.unity3d
+    Info_2:
+      Name: assets/menu.unity3d
+      Dependencies: {}
+    Info_3:
+      Name: assets/anothermenu.unity3d
+      Dependencies: {}
+    Info_4:
+      Name: assets/basemenu.unity3d
+      Dependencies: {}

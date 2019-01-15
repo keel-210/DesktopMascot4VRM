@@ -26,7 +26,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Test/MenuScene.unity
     guid: 55ace685f32585f46918673b68688f77
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test/TimeTest.unity
     guid: b4fbe156267b6124e87ea90e6bf350e4
+  - enabled: 1
+    path: Assets/Scenes/Test/SoundRecogTest.unity
+    guid: 8c0b6c03f8ba7ab45baade5761748656
   m_configObjects: {}
