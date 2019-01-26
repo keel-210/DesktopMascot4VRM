@@ -16,7 +16,6 @@ public class VoiceRecogTest : MonoBehaviour
 
 		source.QueryDeviceInfo(1, out dinfo);
 		source.SetDevice(dinfo);
-		Debug.Log(dinfo.name);
 
 		session.CreateImpl<PXCMSpeechRecognition>(out sr);
 

@@ -50,6 +50,11 @@ public class AssetBundleLoader : MonoBehaviour
 			obj.GetComponent<RectTransform>().position = new Vector3(Screen.width / 2, Screen.height / 2, 0);
 			obj.name = "menu";
 		}
+		else if (s == "Util")
+		{
+			Destroy(GameObject.Find("Util"));
+			obj.name = "Util";
+		}
 		else
 		{
 			Destroy(obj);
