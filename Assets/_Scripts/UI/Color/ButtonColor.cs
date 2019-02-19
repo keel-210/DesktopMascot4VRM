@@ -9,24 +9,27 @@ public class ButtonColor : MonoBehaviour
 	void Start()
 	{
 		image = GetComponent<Image>();
+		StateChange(OffColor, false);
 	}
 	void OnEnable()
 	{
-		StateChange(OffColor, false);
+		if (IsOn)
+			StateChange(OffColor, false);
 	}
 	void OnDisable()
 	{
-		StateChange(OffColor, false);
+		if (IsOn)
+			StateChange(OffColor, false);
 	}
 	public void Change()
 	{
 		if (IsOn)
 		{
-			StateChange(OffColor, false);
+			StateChange(OffColor, !IsOn);
 		}
 		else
 		{
-			StateChange(OnColor, true);
+			StateChange(OnColor, !IsOn);
 		}
 	}
 	void StateChange(Color c, bool state)

@@ -4,29 +4,33 @@ using UnityEngine;
 
 public class VoiceRecogCommand : MonoBehaviour
 {
-	public List<SelectMethod> MethodList = new List<SelectMethod>();
+	[System.Serializable]
+	public class Command
+	{
+		public string Key { get; set; }
+		public SelectMethod Method { get; set; }
+	}
+	public List<Command> CommandList;
 	void Start()
 	{
-		//呼び出し　これは好きなタイミングで呼ぶ
-		//IVoiceRecog recog = GetComponent<IVoiceRecog>();
-		//recog.OnResult += (text) => Command(text);
-		MethodList.ForEach(item => item.Execute());
+		// IVoiceRecog recog = GetComponent<IVoiceRecog>();
+		// recog.OnResult += (text) => CommandCheck(text);
 	}
-	void Command(string text)
+	void CommandCheck(string text)
 	{
-		// foreach (var c in CommandList)
-		// {
-		// 	if (text.Contains(c.Command))
-		// 	{
-		// 		c.Method.Execute();
-		// 	}
-		// }
+		foreach (var c in CommandList)
+		{
+			if (text.Contains(c.Key))
+			{
+				c.Method.Execute();
+			}
+		}
 	}
 	void Compare()
 	{
 
 	}
-	public void Timer(string text)
+	public void Timer()
 	{
 
 	}

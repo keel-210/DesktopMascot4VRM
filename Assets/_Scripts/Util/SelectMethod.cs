@@ -5,10 +5,9 @@ using UnityEngine.EventSystems;
 public class SelectMethod : ISerializationCallbackReceiver
 {
 	public MonoBehaviour TargetObject;
-
 	public string CallbackName;
-
 	public System.Object MethodArgument;
+	public UnityEngine.Object ArgumentObject;
 	[SerializeField, HideInInspector] string ArgSerialized;
 	[SerializeField, HideInInspector] string ArgType;
 
@@ -37,6 +36,10 @@ public class SelectMethod : ISerializationCallbackReceiver
 		{
 			TargetObject.SendMessage(CallbackName, MethodArgument);
 		}
+		else if (ArgumentObject)
+		{
+			TargetObject.SendMessage(CallbackName, ArgumentObject);
+		}
 		else
 		{
 			TargetObject.SendMessage(CallbackName);
@@ -49,8 +52,6 @@ public class SelectMethod : ISerializationCallbackReceiver
 			return;
 		}
 		var type = System.Type.GetType(ArgType);
-		if (type == null)
-			type = System.Reflection.Assembly.Load("UnityEngine.dll").GetType(ArgType);
 		if (type == typeof(string))
 			MethodArgument = ArgSerialized;
 		if (type == typeof(bool))

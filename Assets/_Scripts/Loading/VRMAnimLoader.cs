@@ -66,9 +66,9 @@ public class VRMAnimLoader : MonoBehaviour
 		try
 		{
 			byte[] bytes = File.ReadAllBytes(path);
-			context = new VRMImporterContext(UniGLTF.UnityPath.FromFullpath(path));
+			context = new VRMImporterContext();
 			context.ParseGlb(bytes);
-			VRMImporter.LoadFromBytes(context);
+			context.Load(path);
 
 			newModel = context.Root;
 			meta = context.ReadMeta();

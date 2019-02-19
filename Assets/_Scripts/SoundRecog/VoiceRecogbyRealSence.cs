@@ -19,14 +19,24 @@ public class VoiceRecogbyRealSence : MonoBehaviour, IVoiceRecog
 	}
 	public void Deactivate()
 	{
-		if (sr != null)
+		Debug.Log("Deactivete");
+		try
 		{
-			sr.StopRec();
-			sr.Dispose();
+			if (sr != null)
+			{
+				//StopRecを実行するとUnityがクラッシュする原因不明
+				//sr.StopRec();
+				sr.Dispose();
+			}
+			if (session != null)
+			{
+				session.Dispose();
+			}
 		}
-		if (session != null)
+		catch
 		{
-			session.Dispose();
+			FindObjectOfType<ErrorReciever>().Error("Error 601 : IntelRealsence Deactivate Error");
+
 		}
 	}
 	void ActivateRecog()

@@ -18,12 +18,19 @@ public class VoiceRecogbySpeech : MonoBehaviour, IVoiceRecog
 		catch
 		{
 			DeActivateRecog();
-			FindObjectOfType<ErrorReciever>().Error("Error 601 : Windows.Speech Activate Error");
+			FindObjectOfType<ErrorReciever>().Error("Error 602 : Windows.Speech Activate Error");
 		}
 	}
 	public void Deactivate()
 	{
-		DeActivateRecog();
+		try
+		{
+			DeActivateRecog();
+		}
+		catch
+		{
+			FindObjectOfType<ErrorReciever>().Error("Error 603 : Windows.Speech Deactivate Error");
+		}
 	}
 	private void ActiveteRecog()
 	{
@@ -38,8 +45,9 @@ public class VoiceRecogbySpeech : MonoBehaviour, IVoiceRecog
 	{
 		if (dictationRecognizer != null)
 		{
-			dictationRecognizer.DictationResult -= (text, confidence) => RecogResult = text;
-			dictationRecognizer.DictationHypothesis -= (text) => RecogResult = text;
+			dictationRecognizer.DictationResult -= (text, confidence) => OnResult(text);
+			dictationRecognizer.DictationHypothesis -= (text) => OnHypothesis(text);
+			dictationRecognizer.Stop();
 			dictationRecognizer.Dispose();
 		}
 	}

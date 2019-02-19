@@ -11,7 +11,8 @@ using UniHumanoid;
 using UnityEngine;
 using VRM;
 
-public class VrmSample : MonoBehaviour {
+public class VrmSample : MonoBehaviour
+{
 
     private WindowController windowController;
 
@@ -21,43 +22,44 @@ public class VrmSample : MonoBehaviour {
     private VRMMetaObject meta;
 
     public VrmUiController uiController;
-	public CameraController cameraController;
+    public CameraController cameraController;
     public Transform cameraTransform;
 
-	private CameraController.WheelMode originalWheelMode;
+    private CameraController.WheelMode originalWheelMode;
 
-
- 	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         if (!uiController)
         {
             uiController = FindObjectOfType<VrmUiController>();
         }
 
-		if (!cameraController)
-		{
-			cameraController = FindObjectOfType<CameraController>();
-			if (cameraController)
-			{
-				originalWheelMode = cameraController.wheelMode;
-			}
-		}
+        if (!cameraController)
+        {
+            cameraController = FindObjectOfType<CameraController>();
+            if (cameraController)
+            {
+                originalWheelMode = cameraController.wheelMode;
+            }
+        }
 
-		// Load the initial motion.
-		LoadMotion(Application.streamingAssetsPath + "/default_bvh.txt");
+        // Load the initial motion.
+        LoadMotion(Application.streamingAssetsPath + "/default_bvh.txt");
 
         // Load the initial model.
         string[] cmdArgs = System.Environment.GetCommandLineArgs();
         if (cmdArgs.Length > 1)
         {
             LoadModel(cmdArgs[1]);
-        } else
+        }
+        else
         {
             LoadModel(Application.streamingAssetsPath + "/default_vrm.vrm");
         }
 
         // Initialize window manager
-        windowController =FindObjectOfType<WindowController>();
+        windowController = FindObjectOfType<WindowController>();
         if (windowController)
         {
             // Add a file drop handler.
@@ -65,32 +67,33 @@ public class VrmSample : MonoBehaviour {
         }
     }
 
-	void Update()
-	{
-		// ホイール操作は不透明なところでのみ受け付けさせる
-		if (windowController && cameraController)
-		{
-			Vector2 pos = Input.mousePosition;
-			bool inScreen = (pos.x >= 0 && pos.x < Screen.width && pos.y >= 0 && pos.y < Screen.height);
-			if (windowController.isFocusable && inScreen)
-			{
-				cameraController.wheelMode = originalWheelMode;
-			} else
-			{
-				cameraController.wheelMode = CameraController.WheelMode.None;
-			}
-		}
-	}
+    void Update()
+    {
+        // ホイール操作は不透明なところでのみ受け付けさせる
+        if (windowController && cameraController)
+        {
+            Vector2 pos = Input.mousePosition;
+            bool inScreen = (pos.x >= 0 && pos.x < Screen.width && pos.y >= 0 && pos.y < Screen.height);
+            if (windowController.isFocusable && inScreen)
+            {
+                cameraController.wheelMode = originalWheelMode;
+            }
+            else
+            {
+                cameraController.wheelMode = CameraController.WheelMode.None;
+            }
+        }
+    }
 
-	/// <summary>
-	/// A handler for file dropping.
-	/// </summary>
-	/// <param name="files"></param>
-	private void Window_OnFilesDropped(string[] files)
+    /// <summary>
+    /// A handler for file dropping.
+    /// </summary>
+    /// <param name="files"></param>
+    private void Window_OnFilesDropped(string[] files)
     {
         foreach (string path in files)
         {
-			string ext = path.Substring(path.Length - 4).ToLower();
+            string ext = path.Substring(path.Length - 4).ToLower();
 
             // Open the VRM file if its extension is ".vrm".
             if (ext == ".vrm")
@@ -99,38 +102,38 @@ public class VrmSample : MonoBehaviour {
                 break;
             }
 
-			// Open the motion file if its extension is ".bvh" or ".txt".
-			if (ext == ".bvh" || ext == ".txt")
-			{
-				LoadMotion(path);
-				break;
-			}
-		}
-	}
+            // Open the motion file if its extension is ".bvh" or ".txt".
+            if (ext == ".bvh" || ext == ".txt")
+            {
+                LoadMotion(path);
+                break;
+            }
+        }
+    }
 
-	/// <summary>
-	/// Apply the motion to the model.
-	/// </summary>
-	/// <param name="motion"></param>
-	/// <param name="model"></param>
-	/// <param name="meta"></param>
-	private void SetMotion(HumanPoseTransfer motion, HumanPoseTransfer model, VRMMetaObject meta)
-	{
-		if (!model || !motion || !meta) return;
+    /// <summary>
+    /// Apply the motion to the model.
+    /// </summary>
+    /// <param name="motion"></param>
+    /// <param name="model"></param>
+    /// <param name="meta"></param>
+    private void SetMotion(HumanPoseTransfer motion, HumanPoseTransfer model, VRMMetaObject meta)
+    {
+        if (!model || !motion || !meta)return;
 
-		// Apply the motion if AllowedUser is equal to "Everyone".
-		if (meta.AllowedUser == AllowedUser.Everyone)
-		{
-			model.Source = motion;
-			model.SourceType = HumanPoseTransfer.HumanPoseTransferSourceType.HumanPoseTransfer;
-		}
-	}
+        // Apply the motion if AllowedUser is equal to "Everyone".
+        if (meta.AllowedUser == AllowedUser.Everyone)
+        {
+            model.Source = motion;
+            model.SourceType = HumanPoseTransfer.HumanPoseTransferSourceType.HumanPoseTransfer;
+        }
+    }
 
-	/// <summary>
-	/// Load the motion from a BVH file.
-	/// </summary>
-	/// <param name="path"></param>
-	private void LoadMotion(string path)
+    /// <summary>
+    /// Load the motion from a BVH file.
+    /// </summary>
+    /// <param name="path"></param>
+    private void LoadMotion(string path)
     {
         ImporterContext context = new ImporterContext
         {
@@ -141,7 +144,7 @@ public class VrmSample : MonoBehaviour {
         motion = context.Root.GetComponent<HumanPoseTransfer>();
         motion.GetComponent<Renderer>().enabled = false;
 
-		SetMotion(motion, model, meta);
+        SetMotion(motion, model, meta);
     }
 
     /// <summary>
@@ -150,7 +153,7 @@ public class VrmSample : MonoBehaviour {
     /// <param name="path"></param>
     private void LoadModel(string path)
     {
-        if (!File.Exists(path)) return;
+        if (!File.Exists(path))return;
 
         GameObject newModel = null;
 
@@ -158,9 +161,9 @@ public class VrmSample : MonoBehaviour {
         {
             // Load from a VRM file.
             byte[] bytes = File.ReadAllBytes(path);
-            context = new VRMImporterContext(UniGLTF.UnityPath.FromFullpath(path));
+            context = new VRMImporterContext();
             context.ParseGlb(bytes);
-            VRMImporter.LoadFromBytes(context);
+            context.Load(path);
 
             newModel = context.Root;
             meta = context.ReadMeta();
@@ -179,9 +182,9 @@ public class VrmSample : MonoBehaviour {
         if (newModel)
         {
             model = newModel.AddComponent<HumanPoseTransfer>();
-			SetMotion(motion, model, meta);
+            SetMotion(motion, model, meta);
 
-			model.gameObject.AddComponent<CharacterBehaviour>();
+            model.gameObject.AddComponent<CharacterBehaviour>();
 
             if (uiController)
             {
